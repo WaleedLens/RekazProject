@@ -1,0 +1,114 @@
+14:13:40.209 [main] INFO  org.example.Main - Hello world
+14:14:28.031 [main] INFO  org.example.Main -  world
+14:14:28.034 [main] ERROR org.example.Main - Heeee
+14:14:41.258 [main] INFO  org.example.Main - This is an info message.
+14:14:41.261 [main] WARN  org.example.Main - This is a warning message.
+14:14:41.261 [main] ERROR org.example.Main - This is an error message.
+01:29:01.170 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:29:01.172 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:29:01.229 [main] INFO  org.reflections.Reflections - Reflections took 36 ms to scan 1 urls, producing 0 keys and 0 values
+01:29:01.235 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:30:24.126 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:30:24.129 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:30:24.184 [main] INFO  org.reflections.Reflections - Reflections took 32 ms to scan 1 urls, producing 0 keys and 0 values
+01:30:24.190 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:30:24.226 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:30:24.239 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:30:24.255 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:30:24.426 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:30:24.485 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+01:30:24.485 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:30:50.824 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:30:50.825 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:30:50.883 [main] INFO  org.reflections.Reflections - Reflections took 37 ms to scan 1 urls, producing 0 keys and 0 values
+01:30:50.888 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:30:50.889 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:30:50.915 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:30:50.922 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:30:50.931 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:30:51.065 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:30:51.124 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+01:33:04.789 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:33:04.792 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:33:04.854 [main] INFO  org.reflections.Reflections - Reflections took 37 ms to scan 1 urls, producing 0 keys and 0 values
+01:33:04.861 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:33:04.862 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:33:04.891 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:33:04.901 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:33:04.913 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:33:05.051 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:33:05.103 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+01:34:11.210 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:34:11.212 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:34:11.273 [main] INFO  org.reflections.Reflections - Reflections took 38 ms to scan 1 urls, producing 0 keys and 0 values
+01:34:11.281 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:34:11.281 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:34:11.314 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:34:11.323 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:34:11.336 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:34:11.479 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:34:11.543 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+01:35:10.325 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:35:10.327 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:35:10.393 [main] INFO  org.reflections.Reflections - Reflections took 45 ms to scan 1 urls, producing 0 keys and 0 values
+01:35:10.399 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:35:10.399 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:35:10.423 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:35:10.432 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:35:10.445 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:35:10.589 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:35:10.653 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+01:36:06.708 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:36:06.710 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:36:06.771 [main] INFO  org.reflections.Reflections - Reflections took 41 ms to scan 1 urls, producing 0 keys and 0 values
+01:36:06.778 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:36:06.778 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:36:06.809 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:36:06.820 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:36:06.834 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:36:06.971 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:36:07.026 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+01:36:26.282 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:36:26.285 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:36:26.366 [main] INFO  org.reflections.Reflections - Reflections took 58 ms to scan 1 urls, producing 4 keys and 4 values
+01:36:26.389 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:36:26.389 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:36:26.426 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:36:26.432 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:36:26.442 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:36:26.573 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:36:26.627 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+01:37:29.558 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:37:29.561 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:37:29.633 [main] INFO  org.reflections.Reflections - Reflections took 48 ms to scan 1 urls, producing 4 keys and 4 values
+01:37:29.652 [main] INFO  org.example.core.ApplicationInitializer - ---> 0 annotated classes found.
+01:37:29.653 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:37:29.653 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:37:29.689 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:37:29.696 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:37:29.706 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:37:29.839 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:37:29.897 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+01:37:46.297 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:37:46.300 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:37:46.366 [main] INFO  org.reflections.Reflections - Reflections took 43 ms to scan 1 urls, producing 0 keys and 0 values
+01:37:46.377 [main] INFO  org.example.core.ApplicationInitializer - ---> 0 annotated classes found.
+01:37:46.377 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:37:46.378 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:37:46.414 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:37:46.424 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:37:46.439 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:37:46.581 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:37:46.645 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+01:39:54.206 [main] INFO  org.example.Main - [ℹ] Initializing Application
+01:39:54.208 [main] INFO  org.example.Main - [...] Loading routes...⌛
+01:39:54.278 [main] INFO  org.reflections.Reflections - Reflections took 48 ms to scan 1 urls, producing 1 keys and 1 values
+01:39:54.293 [main] INFO  org.example.core.ApplicationInitializer - ---> 1 annotated methods found.
+01:39:54.317 [main] INFO  org.example.core.RouteManager - New Route added
+01:39:54.318 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+01:39:54.318 [main] INFO  org.example.Main - [...] Starting server...⌛
+01:39:54.331 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+01:39:54.338 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+01:39:54.348 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+01:39:54.478 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+01:39:54.539 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
