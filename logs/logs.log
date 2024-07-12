@@ -112,3 +112,194 @@
 01:39:54.348 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
 01:39:54.478 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
 01:39:54.539 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+11:20:43.733 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:20:43.736 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:20:43.832 [main] INFO  org.reflections.Reflections - Reflections took 68 ms to scan 1 urls, producing 1 keys and 2 values
+11:20:43.882 [main] INFO  org.example.core.RouteManager - New Route added 
+11:23:27.023 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:23:27.026 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:23:27.112 [main] INFO  org.reflections.Reflections - Reflections took 59 ms to scan 1 urls, producing 1 keys and 2 values
+11:23:27.156 [main] INFO  org.example.core.RouteManager - New Route added 
+11:23:27.158 [main] INFO  org.example.core.RouteManager - New Route added 
+11:23:27.158 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+11:23:27.158 [main] INFO  org.example.Main - [...] Starting server...⌛
+11:23:27.171 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+11:23:27.180 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+11:23:27.192 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+11:23:27.335 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+11:23:27.391 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+11:25:42.973 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:25:42.976 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:25:43.053 [main] INFO  org.reflections.Reflections - Reflections took 55 ms to scan 1 urls, producing 1 keys and 2 values
+11:25:43.097 [main] INFO  org.example.core.RouteManager - New Route added 
+11:25:43.099 [main] INFO  org.example.core.RouteManager - New Route added 
+11:25:43.099 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+11:25:43.099 [main] INFO  org.example.Main - [...] Starting server...⌛
+11:25:43.120 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+11:25:43.130 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+11:25:43.142 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+11:25:43.292 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+11:25:43.347 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+11:25:47.460 [XNIO-1 I/O-1] ERROR o.e.controllers.StorageController - An error occurred: Invalid JSON format
+11:28:43.323 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:28:43.326 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:28:43.406 [main] INFO  org.reflections.Reflections - Reflections took 54 ms to scan 1 urls, producing 1 keys and 2 values
+11:28:43.442 [main] INFO  org.example.core.RouteManager - New Route added 
+11:28:43.443 [main] INFO  org.example.core.RouteManager - New Route added 
+11:28:43.443 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+11:28:43.443 [main] INFO  org.example.Main - [...] Starting server...⌛
+11:28:43.454 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+11:28:43.461 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+11:28:43.470 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+11:28:43.607 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+11:28:43.672 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+11:42:46.913 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:42:46.915 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:42:46.987 [main] INFO  org.reflections.Reflections - Reflections took 49 ms to scan 1 urls, producing 1 keys and 2 values
+11:42:47.019 [main] INFO  org.example.core.RouteManager - New Route added 
+11:42:47.020 [main] INFO  org.example.core.RouteManager - New Route added 
+11:42:47.020 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+11:42:47.020 [main] INFO  org.example.Main - [...] Starting server...⌛
+11:42:47.034 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+11:42:47.048 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+11:42:47.063 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+11:42:47.208 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+11:42:47.272 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+11:42:49.824 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Base64 data is valid
+11:42:49.828 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Blob saved successfullyBlob{id='34gggf4', data='SGVsbG8gU2ltcGxlIFN0b3JhZ2UgV29ybGQh', size=27, createdAt=2024-07-12 11:42:49.824}
+11:42:59.878 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Base64 data is valid
+11:42:59.878 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Blob saved successfullyBlob{id='34gggf4', data='gjghjjjgjghk', size=9, createdAt=2024-07-12 11:42:59.878}
+11:43:09.370 [XNIO-1 I/O-4] ERROR o.e.controllers.StorageController - An error occurred: Invalid Base64 data
+11:43:13.440 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Base64 data is valid
+11:43:13.440 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Blob saved successfullyBlob{id='34gggf4', data='HelloWorld', size=7, createdAt=2024-07-12 11:43:13.44}
+11:47:47.948 [XNIO-1 I/O-4] ERROR o.e.controllers.StorageController - An error occurred: Invalid JSON format
+11:49:15.273 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:49:15.276 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:49:15.361 [main] INFO  org.reflections.Reflections - Reflections took 57 ms to scan 1 urls, producing 1 keys and 2 values
+11:49:15.397 [main] INFO  org.example.core.RouteManager - New Route added 
+11:49:15.398 [main] INFO  org.example.core.RouteManager - New Route added 
+11:49:15.398 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+11:49:15.399 [main] INFO  org.example.Main - [...] Starting server...⌛
+11:49:15.413 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+11:49:15.423 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+11:49:15.436 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+11:49:15.626 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+11:49:15.681 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+11:49:20.392 [XNIO-1 I/O-2] ERROR o.e.controllers.StorageController - An error occurred: Invalid JSON format
+16:52:45.469 [main] INFO  org.example.Main - ---> s3
+16:52:45.473 [main] INFO  org.example.Main - [ℹ] Initializing Application
+16:52:45.474 [main] INFO  org.example.Main - [...] Loading routes...⌛
+16:52:45.561 [main] INFO  org.reflections.Reflections - Reflections took 62 ms to scan 1 urls, producing 1 keys and 2 values
+16:52:45.597 [main] INFO  org.example.core.RouteManager - New Route added 
+16:52:45.599 [main] INFO  org.example.core.RouteManager - New Route added 
+16:52:45.599 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+16:52:45.599 [main] INFO  org.example.Main - [...] Starting server...⌛
+16:52:45.610 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+16:52:45.619 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+16:52:45.630 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+16:52:45.794 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+16:52:45.857 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+16:53:00.610 [main] INFO  org.example.Main - ---> 8906
+16:53:00.612 [main] INFO  org.example.Main - [ℹ] Initializing Application
+16:53:00.613 [main] INFO  org.example.Main - [...] Loading routes...⌛
+16:53:00.683 [main] INFO  org.reflections.Reflections - Reflections took 49 ms to scan 1 urls, producing 1 keys and 2 values
+16:53:00.711 [main] INFO  org.example.core.RouteManager - New Route added 
+16:53:00.712 [main] INFO  org.example.core.RouteManager - New Route added 
+16:53:00.712 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+16:53:00.713 [main] INFO  org.example.Main - [...] Starting server...⌛
+16:53:00.722 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+16:53:00.727 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+16:53:00.736 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+16:53:00.867 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+16:53:00.921 [main] INFO  org.example.core.WebServer - [OK] Server started successfully ✔
+17:26:06.384 [main] INFO  org.example.Main - [ℹ] Initializing Application
+17:26:06.386 [main] INFO  org.example.Main - [...] Loading routes...⌛
+17:26:06.387 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+17:26:06.399 [main] INFO  o.e.core.ApplicationInitializer - null
+17:26:06.483 [main] INFO  org.reflections.Reflections - Reflections took 60 ms to scan 1 urls, producing 1 keys and 2 values
+17:26:06.533 [main] INFO  org.example.core.RouteManager - New Route added 
+17:26:06.535 [main] INFO  org.example.core.RouteManager - New Route added 
+17:26:06.536 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+17:26:06.536 [main] INFO  org.example.Main - [...] Starting server...⌛
+17:26:06.549 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+17:26:06.555 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+17:26:06.563 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+17:26:06.707 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+17:26:06.769 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+17:27:19.598 [main] INFO  org.example.Main - [ℹ] Initializing Application
+17:27:19.601 [main] INFO  org.example.Main - [...] Loading routes...⌛
+17:27:19.601 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+17:27:19.614 [main] INFO  o.e.core.ApplicationInitializer - 8906
+17:27:19.681 [main] INFO  org.reflections.Reflections - Reflections took 46 ms to scan 1 urls, producing 1 keys and 2 values
+17:27:19.719 [main] INFO  org.example.core.RouteManager - New Route added 
+17:27:19.721 [main] INFO  org.example.core.RouteManager - New Route added 
+17:27:19.721 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+17:27:19.721 [main] INFO  org.example.Main - [...] Starting server...⌛
+17:27:19.733 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+17:27:19.742 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+17:27:19.751 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+17:27:19.879 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+17:27:19.939 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+17:30:58.584 [main] INFO  org.example.Main - [ℹ] Initializing Application
+17:30:58.585 [main] INFO  org.example.Main - [...] Loading routes...⌛
+17:30:58.586 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+17:30:58.652 [main] INFO  org.reflections.Reflections - Reflections took 40 ms to scan 1 urls, producing 1 keys and 2 values
+17:30:58.685 [main] INFO  org.example.core.RouteManager - New Route added 
+17:30:58.687 [main] INFO  org.example.core.RouteManager - New Route added 
+17:30:58.687 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+17:30:58.687 [main] INFO  org.example.Main - [...] Starting server...⌛
+17:30:58.700 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+17:30:58.706 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+17:30:58.715 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+17:30:58.845 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+17:30:58.910 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+17:31:59.208 [main] INFO  org.example.Main - [ℹ] Initializing Application
+17:31:59.210 [main] INFO  org.example.Main - [...] Loading routes...⌛
+17:31:59.210 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+17:31:59.296 [main] INFO  org.reflections.Reflections - Reflections took 48 ms to scan 1 urls, producing 1 keys and 2 values
+17:31:59.335 [main] INFO  org.example.core.RouteManager - New Route added 
+17:31:59.336 [main] INFO  org.example.core.RouteManager - New Route added 
+17:31:59.336 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+17:31:59.336 [main] INFO  org.example.Main - [...] Starting server...⌛
+17:31:59.347 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+17:31:59.355 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+17:31:59.365 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+17:31:59.500 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+17:31:59.555 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+17:32:05.698 [XNIO-1 I/O-4] ERROR o.e.controllers.StorageController - Invalid request: 
+org.example.exception.InvalidRequestException: Invalid JSON format
+	at org.example.utils.ParsingUtils.parseJson(ParsingUtils.java:19)
+	at org.example.controllers.StorageController.lambda$saveBlob$0(StorageController.java:43)
+	at io.undertow.io.AsyncReceiverImpl.receiveFullBytes(AsyncReceiverImpl.java:399)
+	at org.example.controllers.StorageController.lambda$saveBlob$1(StorageController.java:41)
+	at io.undertow.server.RoutingHandler.handleRequest(RoutingHandler.java:93)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEventWithNoRunningRequest(HttpReadListener.java:265)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEvent(HttpReadListener.java:136)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:162)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:100)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:57)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92)
+	at org.xnio.ChannelListeners$10.handleEvent(ChannelListeners.java:291)
+	at org.xnio.ChannelListeners$10.handleEvent(ChannelListeners.java:286)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92)
+	at org.xnio.nio.QueuedNioTcpServer2.acceptTask(QueuedNioTcpServer2.java:178)
+	at org.xnio.nio.WorkerThread.safeRun(WorkerThread.java:624)
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:491)
+Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "datajj" (class org.example.model.BlobDto), not marked as ignorable (2 known properties: "data", "id"])
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 3, column: 15] (through reference chain: org.example.model.BlobDto["datajj"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1153)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:2241)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1793)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1771)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:316)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:177)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:342)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4905)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3885)
+	at org.example.utils.ParsingUtils.parseJson(ParsingUtils.java:15)
+	... 17 common frames omitted
+17:32:15.914 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Base64 data is valid
+17:32:15.918 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Blob saved successfullyBlob{id='34gggf4', data='HelloWorld', size=7, createdAt=2024-07-12 17:32:15.914}
+17:32:15.918 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - HEYY ===>s3

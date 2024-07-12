@@ -55,4 +55,15 @@ public class Blob {
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
+
+
+    @Override
+    public String toString() {
+        return "Blob{" +
+                "id='" + id + '\'' +
+                ", data='" + data + '\'' +
+                ", size=" + size +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }
