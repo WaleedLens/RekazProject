@@ -303,3 +303,154 @@ Caused by: com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unr
 17:32:15.914 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Base64 data is valid
 17:32:15.918 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - Blob saved successfullyBlob{id='34gggf4', data='HelloWorld', size=7, createdAt=2024-07-12 17:32:15.914}
 17:32:15.918 [XNIO-1 I/O-4] INFO  org.example.services.StorageService - HEYY ===>s3
+22:12:18.666 [main] INFO  org.example.Main - [ℹ] Initializing Application
+22:12:18.670 [main] INFO  org.example.Main - [...] Loading routes...⌛
+22:12:18.670 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+22:12:18.811 [main] INFO  org.reflections.Reflections - Reflections took 102 ms to scan 1 urls, producing 1 keys and 2 values
+22:12:18.822 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+22:12:18.822 [main] INFO  org.example.Main - [...] Starting server...⌛
+22:12:18.859 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+22:12:18.870 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+22:12:18.886 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+22:12:19.051 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+22:12:19.115 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+22:14:53.544 [main] INFO  org.example.Main - [ℹ] Initializing Application
+22:14:53.546 [main] INFO  org.example.Main - [...] Loading routes...⌛
+22:14:53.546 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+22:14:53.781 [main] INFO  org.reflections.Reflections - Reflections took 38 ms to scan 1 urls, producing 1 keys and 2 values
+22:14:53.804 [main] INFO  org.example.core.RouteManager - New Route added 
+22:14:53.806 [main] INFO  org.example.core.RouteManager - New Route added 
+22:14:53.806 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+22:14:53.806 [main] INFO  org.example.Main - [...] Starting server...⌛
+22:14:53.815 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+22:14:53.822 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+22:14:53.830 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+22:14:53.951 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+22:14:54.012 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+22:15:15.465 [XNIO-1 I/O-7] INFO  o.example.services.S3StorageService - Its S3!!!
+22:15:48.621 [main] INFO  org.example.Main - [ℹ] Initializing Application
+22:15:48.623 [main] INFO  org.example.Main - [...] Loading routes...⌛
+22:15:48.623 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+22:15:48.896 [main] INFO  org.reflections.Reflections - Reflections took 44 ms to scan 1 urls, producing 1 keys and 2 values
+22:15:48.922 [main] INFO  org.example.core.RouteManager - New Route added 
+22:15:48.923 [main] INFO  org.example.core.RouteManager - New Route added 
+22:15:48.923 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+22:15:48.923 [main] INFO  org.example.Main - [...] Starting server...⌛
+22:15:48.931 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+22:15:48.938 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+22:15:48.946 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+22:15:49.065 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+22:15:49.118 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+22:15:51.165 [XNIO-1 I/O-8] INFO  o.e.services.LocalFileStorageService - Its local!!
+22:15:55.627 [XNIO-1 I/O-8] INFO  o.e.services.LocalFileStorageService - Its local!!
+23:23:56.162 [main] INFO  org.example.Main - [ℹ] Initializing Application
+23:23:56.164 [main] INFO  org.example.Main - [...] Loading routes...⌛
+23:23:56.164 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+23:24:45.726 [main] INFO  org.example.Main - [ℹ] Initializing Application
+23:24:45.729 [main] INFO  org.example.Main - [...] Loading routes...⌛
+23:24:45.730 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+23:24:45.962 [main] INFO  org.reflections.Reflections - Reflections took 36 ms to scan 1 urls, producing 1 keys and 2 values
+23:24:45.974 [main] INFO  org.example.core.RouteManager - New Route added 
+23:24:45.975 [main] INFO  org.example.core.RouteManager - New Route added 
+23:24:45.975 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+23:24:45.975 [main] INFO  org.example.Main - [...] Starting server...⌛
+23:24:45.982 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+23:24:45.987 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+23:24:45.995 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+23:24:46.116 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+23:24:46.166 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+23:24:50.227 [XNIO-1 I/O-6] INFO  o.e.services.LocalFileStorageService - Saving blob with id 34gggf4
+23:24:50.227 [XNIO-1 I/O-6] INFO  o.e.services.LocalFileStorageService - Creating file at /home/waleed/server_storage/34gggf4
+23:28:52.521 [main] INFO  org.example.Main - [ℹ] Initializing Application
+23:28:52.524 [main] INFO  org.example.Main - [...] Loading routes...⌛
+23:28:52.524 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+23:28:52.806 [main] INFO  org.reflections.Reflections - Reflections took 44 ms to scan 1 urls, producing 1 keys and 2 values
+23:28:52.823 [main] INFO  org.example.core.RouteManager - New Route added 
+23:28:52.824 [main] INFO  org.example.core.RouteManager - New Route added 
+23:28:52.824 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+23:28:52.824 [main] INFO  org.example.Main - [...] Starting server...⌛
+23:28:52.832 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+23:28:52.839 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+23:28:52.849 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+23:28:52.974 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+23:28:53.036 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+23:28:55.683 [XNIO-1 I/O-5] WARN  o.e.services.LocalFileStorageService - Storage directory does not exist
+23:28:55.683 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Creating storage directory at /home/waleed/server_storaghge
+23:28:55.683 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Saving blob with id 34gggf4
+23:28:55.684 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Creating file at /home/waleed/server_storaghge/34gggf4
+00:08:46.491 [main] INFO  org.example.Main - [ℹ] Initializing Application
+00:08:46.494 [main] INFO  org.example.Main - [...] Loading routes...⌛
+00:08:46.494 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+00:08:46.756 [main] INFO  org.reflections.Reflections - Reflections took 45 ms to scan 1 urls, producing 1 keys and 2 values
+00:08:46.770 [main] INFO  org.example.core.RouteManager - New Route added 
+00:08:46.771 [main] INFO  org.example.core.RouteManager - New Route added 
+00:08:46.771 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+00:08:46.772 [main] INFO  org.example.Main - [...] Starting server...⌛
+00:08:46.782 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+00:08:46.788 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+00:08:46.797 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+00:08:46.921 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+00:08:46.989 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+00:09:04.270 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Saving blob with id imagine
+00:09:04.271 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Created file at /home/waleed/server_storaghge/imagine
+00:09:34.240 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Saving blob with id imagine
+00:09:34.242 [XNIO-1 I/O-5] ERROR o.e.controllers.StorageController - An error occurred: 
+org.example.exception.FileAlreadyExistsException: File with id imagine already exists
+	at org.example.services.LocalFileStorageService.createFile(LocalFileStorageService.java:36)
+	at org.example.services.LocalFileStorageService.saveBlob(LocalFileStorageService.java:30)
+	at org.example.controllers.StorageController.lambda$saveBlob$0(StorageController.java:52)
+	at io.undertow.io.AsyncReceiverImpl.receiveFullBytes(AsyncReceiverImpl.java:399)
+	at org.example.controllers.StorageController.lambda$saveBlob$1(StorageController.java:47)
+	at io.undertow.server.RoutingHandler.handleRequest(RoutingHandler.java:93)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEventWithNoRunningRequest(HttpReadListener.java:265)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEvent(HttpReadListener.java:136)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEvent(HttpReadListener.java:59)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92)
+	at org.xnio.conduits.ReadReadyHandler$ChannelListenerHandler.readReady(ReadReadyHandler.java:66)
+	at org.xnio.nio.NioSocketConduit.handleReady(NioSocketConduit.java:89)
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:603)
+00:10:40.623 [main] INFO  org.example.Main - [ℹ] Initializing Application
+00:10:40.626 [main] INFO  org.example.Main - [...] Loading routes...⌛
+00:10:40.626 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+00:10:40.908 [main] INFO  org.reflections.Reflections - Reflections took 44 ms to scan 1 urls, producing 1 keys and 2 values
+00:10:40.924 [main] INFO  o.e.services.LocalFileStorageService - Creating storage directory at /home/waleed/storage_files3
+00:10:40.928 [main] INFO  org.example.core.RouteManager - New Route added 
+00:10:40.929 [main] INFO  org.example.core.RouteManager - New Route added 
+00:10:40.929 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+00:10:40.930 [main] INFO  org.example.Main - [...] Starting server...⌛
+00:10:40.939 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+00:10:40.945 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+00:10:40.955 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+00:10:41.108 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+00:10:41.176 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+00:10:43.548 [XNIO-1 I/O-8] INFO  o.e.services.LocalFileStorageService - Saving blob with id imagine
+00:10:43.549 [XNIO-1 I/O-8] INFO  o.e.services.LocalFileStorageService - Created file at /home/waleed/storage_files3/imagine
+00:12:36.331 [main] INFO  org.example.Main - [ℹ] Initializing Application
+00:12:36.334 [main] INFO  org.example.Main - [...] Loading routes...⌛
+00:12:36.334 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+00:12:36.586 [main] INFO  org.reflections.Reflections - Reflections took 36 ms to scan 1 urls, producing 1 keys and 2 values
+00:12:36.601 [main] INFO  org.example.core.RouteManager - New Route added 
+00:12:36.603 [main] INFO  org.example.core.RouteManager - New Route added 
+00:12:36.603 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+00:12:36.603 [main] INFO  org.example.Main - [...] Starting server...⌛
+00:12:36.613 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+00:12:36.619 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+00:12:36.627 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+00:12:36.748 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+00:12:36.794 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+00:12:39.397 [XNIO-1 I/O-8] INFO  o.e.controllers.StorageController - Retrieved blob with id imagine and content SGVsbG8gU2ltcGxlIFN0b3JhZ2UgV29ybGQh 
+00:12:58.827 [main] INFO  org.example.Main - [ℹ] Initializing Application
+00:12:58.829 [main] INFO  org.example.Main - [...] Loading routes...⌛
+00:12:58.830 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+00:12:59.075 [main] INFO  org.reflections.Reflections - Reflections took 35 ms to scan 1 urls, producing 1 keys and 2 values
+00:12:59.089 [main] INFO  org.example.core.RouteManager - New Route added 
+00:12:59.090 [main] INFO  org.example.core.RouteManager - New Route added 
+00:12:59.090 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+00:12:59.090 [main] INFO  org.example.Main - [...] Starting server...⌛
+00:12:59.097 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+00:12:59.102 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+00:12:59.111 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+00:12:59.242 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+00:12:59.294 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+00:13:01.305 [XNIO-1 I/O-8] INFO  o.e.controllers.StorageController - Retrieved blob with id imagine and content Blob{id='imagine', data='SGVsbG8gU2ltcGxlIFN0b3JhZ2UgV29ybGQh', size=36, createdAt=2024-07-13 00:13:01.301} 

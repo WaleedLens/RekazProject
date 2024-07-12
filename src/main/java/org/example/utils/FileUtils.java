@@ -1,5 +1,7 @@
 package org.example.utils;
 
+import java.nio.file.Files;
+import java.nio.file.attribute.FileAttribute;
 import java.util.Base64;
 
 public class FileUtils {
@@ -15,4 +17,6 @@ public class FileUtils {
             throw new IllegalArgumentException("Invalid Base64 data", e);
         }
     }
+
+
 }

@@ -19,7 +19,7 @@ public class Main {
         logger.info("[OK] Routes loaded successfully ✔");
         logger.info("[...] Starting server...⌛");
         WebServer webServer = new WebServer();
-
+        webServer.startServer();
 
 
 

@@ -1,15 +1,19 @@
 package org.example.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.google.inject.Inject;
 import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.Headers;
 import io.undertow.util.StatusCodes;
 import org.example.annontations.ApiEndpoint;
+import org.example.exception.BlobNotFoundException;
+import org.example.exception.InvalidJsonException;
 import org.example.exception.InvalidRequestException;
 import org.example.model.Blob;
 import org.example.model.BlobDto;
 import org.example.services.StorageService;
+import org.example.utils.BlobValidator;
 import org.example.utils.ParsingUtils;
 import org.example.utils.RequestUtils;
 import org.slf4j.Logger;
@@ -19,12 +23,14 @@ import java.io.ByteArrayInputStream;
 
 public class StorageController {
 
-    private final StorageService storageService;
 
     private static final Logger logger = LoggerFactory.getLogger(StorageController.class);
 
-    public StorageController() {
-        this.storageService = new StorageService();
+    private final StorageService storageService;
+
+    @Inject
+    public StorageController(StorageService storageService) {
+        this.storageService = storageService;
     }
 
     /**
@@ -41,10 +47,12 @@ public class StorageController {
             exchange.getRequestReceiver().receiveFullBytes((ex, data) -> {
                 try {
                     BlobDto blobData = ParsingUtils.parseJson(new ByteArrayInputStream(data), BlobDto.class);
+                    BlobValidator.isValidBase64(blobData.getData());
+                    BlobValidator.validateBlobData(blobData);
                     storageService.saveBlob(blobData);
                     exchange.setStatusCode(StatusCodes.CREATED);
                     exchange.getResponseHeaders().put(Headers.LOCATION, "/blobs/" + blobData.getId());
-                } catch (InvalidRequestException e) {
+                } catch (InvalidRequestException | InvalidJsonException e) {
                     handleInvalidRequestException(ex, e);
                 } catch (Exception e) {
                     handleException(ex, e);
@@ -59,7 +67,7 @@ public class StorageController {
         logger.error("An error occurred: ", e);
     }
 
-    private void handleInvalidRequestException(HttpServerExchange exchange, InvalidRequestException e) {
+    private void handleInvalidRequestException(HttpServerExchange exchange, Exception e) {
         exchange.setStatusCode(StatusCodes.BAD_REQUEST);
         RequestUtils.sendResponse(exchange, "Invalid request: " + e.getMessage());
         logger.error("Invalid request: ", e);
@@ -75,14 +83,15 @@ public class StorageController {
     @ApiEndpoint(method = "GET", path = "/v1/blobs/{id}")
     public HttpHandler getBlob() {
         return exchange -> {
-            String id = exchange.getQueryParameters().get("id").getFirst();
-            Blob blob = storageService.getBlob(id);
-            if (blob == null) {
+            try {
+                String id = exchange.getQueryParameters().get("id").getFirst();
+                Blob blob = storageService.getBlob(id);
+                // send blob data in response
+                logger.info("Retrieved blob with id {} and content {} ", id, blob.toString());
+            } catch (BlobNotFoundException e) {
                 exchange.setStatusCode(StatusCodes.NOT_FOUND);
-                RequestUtils.sendResponse(exchange, "Blob not found");
-                return;
+                exchange.getResponseSender().send(e.getMessage());
             }
-            RequestUtils.sendResponse(exchange, blob.getData());
         };
     }
 

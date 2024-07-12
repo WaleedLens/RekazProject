@@ -1,0 +1,10 @@
+package org.example.core;
+
+import com.google.inject.AbstractModule;
+
+public class ApplicationModule extends AbstractModule {
+    @Override
+    protected void configure() {
+        bind(RouteManager.class).asEagerSingleton();
+    }
+}
