@@ -13,6 +13,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Base64;
 
+/**
+ * Service for local file storage.
+ */
 public class LocalFileStorageService implements StorageService {
     private static final Logger logger = LoggerFactory.getLogger(LocalFileStorageService.class);
     private final Path path;
@@ -23,6 +26,11 @@ public class LocalFileStorageService implements StorageService {
         createStorageDirectory();
     }
 
+    /**
+     * Saves the blob data to a file.
+     *
+     * @param blobDto The blob data transfer object containing the blob id and data.
+     */
     @Override
     public void saveBlob(BlobDto blobDto) {
         logger.info("Saving blob with id {}", blobDto.getId());
@@ -32,6 +40,11 @@ public class LocalFileStorageService implements StorageService {
         createFile(blob);
     }
 
+    /**
+     * Creates a file from the blob data.
+     *
+     * @param blob The blob object containing the blob id and data.
+     */
     private void createFile(Blob blob) {
         Path filePath = path.resolve(blob.getId());
         if (Files.exists(filePath)) {
@@ -47,6 +60,12 @@ public class LocalFileStorageService implements StorageService {
         }
     }
 
+    /**
+     * Retrieves the blob data from a file.
+     *
+     * @param id The id of the blob.
+     * @return The blob object containing the blob id and data.
+     */
     @Override
     public Blob getBlob(String id) {
         Path filePath = path.resolve(id);
@@ -63,6 +82,9 @@ public class LocalFileStorageService implements StorageService {
         }
     }
 
+    /**
+     * Creates the storage directory if it does not exist.
+     */
     private void createStorageDirectory() {
         if (!Files.exists(path)) {
             try {
