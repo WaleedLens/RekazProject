@@ -31,7 +31,8 @@ public class MongoDBClient {
         String dbHost = System.getProperty("DB_HOST");
         String dbPort = System.getProperty("DB_PORT");
         String dbName = System.getProperty("DB_NAME");
-        String connectionString = String.format("mongodb://%s:%s@%s:%s/%s", dbUsername, dbPassword, dbHost, dbPort, dbName);
+        String authSource = System.getProperty("AUTH_SOURCE");
+        String connectionString = String.format("mongodb://%s:%s@%s:%s/%s%s", dbUsername, dbPassword, dbHost, dbPort, dbName, authSource);
         logger.info("Connection string built successfully.");
         return connectionString;
     }

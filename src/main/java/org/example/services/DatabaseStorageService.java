@@ -10,6 +10,8 @@ import org.example.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.Timestamp;
+
 /**
  * This class provides an implementation of the StorageService interface.
  * It uses MongoDB as the storage backend.
@@ -61,7 +63,12 @@ public class DatabaseStorageService implements StorageService {
             logger.error("No blob found with id: {}", id);
             throw new BlobNotFoundException(id);
         }
-        Blob blob = new Blob(document.getString("id"), document.getString("data"), document.getInteger("size"));
+        Blob blob = new Blob(document.getString("id"), document.getString("data"));
+        Document metadataDocument = mongoClient.findDocument("metadata", new Document("id", id)).first();
+        if (metadataDocument != null) {
+            blob.setSize(metadataDocument.getInteger("size"));
+            blob.setCreatedAt((Timestamp) metadataDocument.getDate("timestamp"));
+        }
         logger.info("Blob with id: {} retrieved successfully.", id);
         return blob;
     }

@@ -511,3 +511,207 @@ org.example.exception.FileAlreadyExistsException: File with id imagine already e
 09:43:44.813 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Blob size: 27
 09:43:44.813 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Created file at /home/waleed/storage_files3/te
 09:43:47.865 [XNIO-1 I/O-5] INFO  o.e.controllers.StorageController - Retrieved blob with id te and content Blob{id='te', data='SGVsbG8gU2ltcGxlIFN0b3JhZ2UgV29ybGQh', size=27, createdAt=2024-07-13 09:43:47.862} 
+11:46:38.567 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:46:38.570 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:46:38.570 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+11:46:38.899 [main] INFO  org.reflections.Reflections - Reflections took 56 ms to scan 1 urls, producing 1 keys and 2 values
+11:46:38.910 [main] INFO  com.mongodb.client.MongoClient - Initializing MongoDBClient...
+11:46:38.910 [main] INFO  com.mongodb.client.MongoClient - Building connection string...
+11:46:38.911 [main] INFO  com.mongodb.client.MongoClient - Connection string built successfully.
+11:46:39.030 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "5.1.2"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.5.0-41-generic"}, "platform": "Java/Oracle Corporation/21+35-2513"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='user', source='rek', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@655f7ea, com.mongodb.Jep395RecordCodecProvider@549949be, com.mongodb.KotlinCodecProvider@4b3a45f1]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+11:46:39.036 [main] INFO  com.mongodb.client.MongoClient - MongoDBClient initialized successfully.
+11:46:39.039 [main] INFO  org.example.core.RouteManager - New Route added 
+11:46:39.040 [main] INFO  org.example.core.RouteManager - New Route added 
+11:46:39.040 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+11:46:39.040 [main] INFO  org.example.Main - [...] Starting server...⌛
+11:46:39.043 [cluster-ClusterId{value='66923eee125e4c00f4538b42', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=14262506}
+11:46:39.051 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+11:46:39.062 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+11:46:39.074 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+11:46:39.207 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+11:46:39.274 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+11:47:10.513 [XNIO-1 I/O-7] INFO  o.e.services.DatabaseStorageService - Saving blob with id: te
+11:47:10.516 [XNIO-1 I/O-7] INFO  com.mongodb.client.MongoClient - Inserting document into collection: blobs
+11:47:10.549 [XNIO-1 I/O-7] ERROR o.e.controllers.StorageController - An error occurred: 
+com.mongodb.MongoSecurityException: Exception authenticating MongoCredential{mechanism=SCRAM-SHA-1, userName='user', source='rek', password=<hidden>, mechanismProperties=<hidden>}
+	at com.mongodb.internal.connection.SaslAuthenticator.wrapException(SaslAuthenticator.java:277)
+	at com.mongodb.internal.connection.SaslAuthenticator.getNextSaslResponse(SaslAuthenticator.java:140)
+	at com.mongodb.internal.connection.SaslAuthenticator.lambda$authenticate$0(SaslAuthenticator.java:70)
+	at com.mongodb.internal.connection.SaslAuthenticator.doAsSubject(SaslAuthenticator.java:284)
+	at com.mongodb.internal.connection.SaslAuthenticator.authenticate(SaslAuthenticator.java:66)
+	at com.mongodb.internal.connection.DefaultAuthenticator.authenticate(DefaultAuthenticator.java:57)
+	at com.mongodb.internal.connection.InternalStreamConnectionInitializer.finishHandshake(InternalStreamConnectionInitializer.java:86)
+	at com.mongodb.internal.connection.InternalStreamConnection.open(InternalStreamConnection.java:231)
+	at com.mongodb.internal.connection.UsageTrackingInternalConnection.open(UsageTrackingInternalConnection.java:55)
+	at com.mongodb.internal.connection.DefaultConnectionPool$PooledConnection.open(DefaultConnectionPool.java:625)
+	at com.mongodb.internal.connection.DefaultConnectionPool$OpenConcurrencyLimiter.openWithConcurrencyLimit(DefaultConnectionPool.java:965)
+	at com.mongodb.internal.connection.DefaultConnectionPool$OpenConcurrencyLimiter.openOrGetAvailable(DefaultConnectionPool.java:906)
+	at com.mongodb.internal.connection.DefaultConnectionPool.get(DefaultConnectionPool.java:203)
+	at com.mongodb.internal.connection.DefaultConnectionPool.get(DefaultConnectionPool.java:192)
+	at com.mongodb.internal.connection.DefaultServer.getConnection(DefaultServer.java:96)
+	at com.mongodb.internal.binding.ClusterBinding$ClusterBindingConnectionSource.getConnection(ClusterBinding.java:178)
+	at com.mongodb.client.internal.ClientSessionBinding$SessionBindingConnectionSource.getConnection(ClientSessionBinding.java:196)
+	at com.mongodb.internal.operation.SyncOperationHelper.withSuppliedResource(SyncOperationHelper.java:141)
+	at com.mongodb.internal.operation.SyncOperationHelper.lambda$withSourceAndConnection$1(SyncOperationHelper.java:123)
+	at com.mongodb.internal.operation.SyncOperationHelper.withSuppliedResource(SyncOperationHelper.java:149)
+	at com.mongodb.internal.operation.SyncOperationHelper.withSourceAndConnection(SyncOperationHelper.java:122)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.lambda$execute$3(MixedBulkWriteOperation.java:188)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.lambda$decorateWriteWithRetries$0(MixedBulkWriteOperation.java:146)
+	at com.mongodb.internal.async.function.RetryingSyncSupplier.get(RetryingSyncSupplier.java:67)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.execute(MixedBulkWriteOperation.java:207)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.execute(MixedBulkWriteOperation.java:77)
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:173)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeSingleWriteRequest(MongoCollectionImpl.java:1084)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeInsertOne(MongoCollectionImpl.java:477)
+	at com.mongodb.client.internal.MongoCollectionImpl.insertOne(MongoCollectionImpl.java:460)
+	at com.mongodb.client.internal.MongoCollectionImpl.insertOne(MongoCollectionImpl.java:454)
+	at org.example.core.MongoDBClient.insertDocument(MongoDBClient.java:42)
+	at org.example.services.DatabaseStorageService.saveBlob(DatabaseStorageService.java:46)
+	at org.example.controllers.StorageController.lambda$saveBlob$0(StorageController.java:51)
+	at io.undertow.io.AsyncReceiverImpl.receiveFullBytes(AsyncReceiverImpl.java:399)
+	at org.example.controllers.StorageController.lambda$saveBlob$1(StorageController.java:46)
+	at io.undertow.server.RoutingHandler.handleRequest(RoutingHandler.java:93)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEventWithNoRunningRequest(HttpReadListener.java:265)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEvent(HttpReadListener.java:136)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:162)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:100)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:57)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92)
+	at org.xnio.ChannelListeners$10.handleEvent(ChannelListeners.java:291)
+	at org.xnio.ChannelListeners$10.handleEvent(ChannelListeners.java:286)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92)
+	at org.xnio.nio.QueuedNioTcpServer2.acceptTask(QueuedNioTcpServer2.java:178)
+	at org.xnio.nio.WorkerThread.safeRun(WorkerThread.java:624)
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:491)
+Caused by: com.mongodb.MongoCommandException: Command failed with error 18 (AuthenticationFailed): 'Authentication failed.' on server localhost:27017. The full response is {"ok": 0.0, "errmsg": "Authentication failed.", "code": 18, "codeName": "AuthenticationFailed"}
+	at com.mongodb.internal.connection.ProtocolHelper.getCommandFailureException(ProtocolHelper.java:205)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.sendAndReceiveInternal(InternalStreamConnection.java:438)
+	at com.mongodb.internal.connection.InternalStreamConnection.lambda$sendAndReceive$0(InternalStreamConnection.java:366)
+	at com.mongodb.internal.connection.InternalStreamConnection.sendAndReceive(InternalStreamConnection.java:369)
+	at com.mongodb.internal.connection.CommandHelper.sendAndReceive(CommandHelper.java:92)
+	at com.mongodb.internal.connection.CommandHelper.executeCommand(CommandHelper.java:48)
+	at com.mongodb.internal.connection.SaslAuthenticator.sendSaslStart(SaslAuthenticator.java:231)
+	at com.mongodb.internal.connection.SaslAuthenticator.getNextSaslResponse(SaslAuthenticator.java:138)
+	... 48 common frames omitted
+11:47:20.547 [cluster-ClusterId{value='66923eee125e4c00f4538b42', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=764399}
+11:49:26.251 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:49:26.253 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:49:26.254 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+11:49:26.502 [main] INFO  org.reflections.Reflections - Reflections took 35 ms to scan 1 urls, producing 1 keys and 2 values
+11:49:26.512 [main] INFO  com.mongodb.client.MongoClient - Initializing MongoDBClient...
+11:49:26.512 [main] INFO  com.mongodb.client.MongoClient - Building connection string...
+11:49:26.512 [main] INFO  com.mongodb.client.MongoClient - Connection String --> mongodb://user:password@localhost:27017/rek
+11:49:26.513 [main] INFO  com.mongodb.client.MongoClient - Connection string built successfully.
+11:49:26.623 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "5.1.2"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.5.0-41-generic"}, "platform": "Java/Oracle Corporation/21+35-2513"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='user', source='rek', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@18025ced, com.mongodb.Jep395RecordCodecProvider@13cf7d52, com.mongodb.KotlinCodecProvider@3a3e4aff]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+11:49:26.630 [main] INFO  com.mongodb.client.MongoClient - MongoDBClient initialized successfully.
+11:49:26.633 [main] INFO  org.example.core.RouteManager - New Route added 
+11:49:26.634 [main] INFO  org.example.core.RouteManager - New Route added 
+11:49:26.635 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+11:49:26.635 [main] INFO  org.example.Main - [...] Starting server...⌛
+11:49:26.637 [cluster-ClusterId{value='66923f968365b878bfdf8691', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=16518714}
+11:49:26.647 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+11:49:26.652 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+11:49:26.660 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+11:49:26.779 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+11:49:26.824 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+11:53:12.521 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:53:12.524 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:53:12.524 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+11:53:12.794 [main] INFO  org.reflections.Reflections - Reflections took 35 ms to scan 1 urls, producing 1 keys and 2 values
+11:53:12.804 [main] INFO  com.mongodb.client.MongoClient - Initializing MongoDBClient...
+11:53:12.804 [main] INFO  com.mongodb.client.MongoClient - Building connection string...
+11:53:12.804 [main] INFO  com.mongodb.client.MongoClient - Connection String --> mongodb://user:password@localhost:27017/rek'?authsource=admin'
+11:53:12.805 [main] INFO  com.mongodb.client.MongoClient - Connection string built successfully.
+11:53:12.917 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "5.1.2"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.5.0-41-generic"}, "platform": "Java/Oracle Corporation/21+35-2513"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='user', source='admin'', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3a3e4aff, com.mongodb.Jep395RecordCodecProvider@5d2a4eed, com.mongodb.KotlinCodecProvider@57459491]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+11:53:12.921 [main] INFO  com.mongodb.client.MongoClient - MongoDBClient initialized successfully.
+11:53:12.924 [main] INFO  org.example.core.RouteManager - New Route added 
+11:53:12.925 [main] INFO  org.example.core.RouteManager - New Route added 
+11:53:12.925 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+11:53:12.925 [main] INFO  org.example.Main - [...] Starting server...⌛
+11:53:12.927 [cluster-ClusterId{value='66924078e52a35433e15e97f', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=11262674}
+11:53:12.935 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+11:53:12.940 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+11:53:12.948 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+11:53:13.078 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+11:53:13.125 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+11:53:38.871 [main] INFO  org.example.Main - [ℹ] Initializing Application
+11:53:38.874 [main] INFO  org.example.Main - [...] Loading routes...⌛
+11:53:38.875 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+11:53:39.142 [main] INFO  org.reflections.Reflections - Reflections took 34 ms to scan 1 urls, producing 1 keys and 2 values
+11:53:39.152 [main] INFO  com.mongodb.client.MongoClient - Initializing MongoDBClient...
+11:53:39.153 [main] INFO  com.mongodb.client.MongoClient - Building connection string...
+11:53:39.153 [main] INFO  com.mongodb.client.MongoClient - Connection String --> mongodb://user:password@localhost:27017/rek?authsource=admin
+11:53:39.154 [main] INFO  com.mongodb.client.MongoClient - Connection string built successfully.
+11:53:39.259 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "5.1.2"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.5.0-41-generic"}, "platform": "Java/Oracle Corporation/21+35-2513"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='user', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3a3e4aff, com.mongodb.Jep395RecordCodecProvider@5d2a4eed, com.mongodb.KotlinCodecProvider@57459491]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+11:53:39.263 [main] INFO  com.mongodb.client.MongoClient - MongoDBClient initialized successfully.
+11:53:39.265 [main] INFO  org.example.core.RouteManager - New Route added 
+11:53:39.266 [main] INFO  org.example.core.RouteManager - New Route added 
+11:53:39.266 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+11:53:39.266 [main] INFO  org.example.Main - [...] Starting server...⌛
+11:53:39.271 [cluster-ClusterId{value='66924093ac9e734179bc2d71', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=12642011}
+11:53:39.276 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+11:53:39.281 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+11:53:39.293 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+11:53:39.421 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+11:53:39.473 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+11:55:00.595 [XNIO-1 I/O-6] INFO  o.e.services.DatabaseStorageService - Saving blob with id: te
+11:55:00.599 [XNIO-1 I/O-6] INFO  com.mongodb.client.MongoClient - Inserting document into collection: blobs
+11:55:00.734 [XNIO-1 I/O-6] ERROR o.e.controllers.StorageController - An error occurred: 
+com.mongodb.MongoCommandException: Command failed with error 13 (Unauthorized): 'not authorized on rek to execute command { insert: "blobs", ordered: true, $db: "rek", lsid: { id: UUID("4db508f8-0629-44e1-8118-32f8c4cce19b") } }' on server localhost:27017. The full response is {"ok": 0.0, "errmsg": "not authorized on rek to execute command { insert: \"blobs\", ordered: true, $db: \"rek\", lsid: { id: UUID(\"4db508f8-0629-44e1-8118-32f8c4cce19b\") } }", "code": 13, "codeName": "Unauthorized"}
+	at com.mongodb.internal.connection.ProtocolHelper.getCommandFailureException(ProtocolHelper.java:205)
+	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:515)
+	at com.mongodb.internal.connection.InternalStreamConnection.sendAndReceiveInternal(InternalStreamConnection.java:438)
+	at com.mongodb.internal.connection.InternalStreamConnection.lambda$sendAndReceive$0(InternalStreamConnection.java:366)
+	at com.mongodb.internal.connection.InternalStreamConnection.sendAndReceive(InternalStreamConnection.java:369)
+	at com.mongodb.internal.connection.UsageTrackingInternalConnection.sendAndReceive(UsageTrackingInternalConnection.java:114)
+	at com.mongodb.internal.connection.DefaultConnectionPool$PooledConnection.sendAndReceive(DefaultConnectionPool.java:743)
+	at com.mongodb.internal.connection.CommandProtocolImpl.execute(CommandProtocolImpl.java:76)
+	at com.mongodb.internal.connection.DefaultServer$DefaultServerProtocolExecutor.execute(DefaultServer.java:209)
+	at com.mongodb.internal.connection.DefaultServerConnection.executeProtocol(DefaultServerConnection.java:115)
+	at com.mongodb.internal.connection.DefaultServerConnection.command(DefaultServerConnection.java:83)
+	at com.mongodb.internal.connection.DefaultServer$OperationCountTrackingConnection.command(DefaultServer.java:307)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.executeCommand(MixedBulkWriteOperation.java:395)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.executeBulkWriteBatch(MixedBulkWriteOperation.java:259)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.lambda$execute$2(MixedBulkWriteOperation.java:203)
+	at com.mongodb.internal.operation.SyncOperationHelper.lambda$withSourceAndConnection$0(SyncOperationHelper.java:124)
+	at com.mongodb.internal.operation.SyncOperationHelper.withSuppliedResource(SyncOperationHelper.java:149)
+	at com.mongodb.internal.operation.SyncOperationHelper.lambda$withSourceAndConnection$1(SyncOperationHelper.java:123)
+	at com.mongodb.internal.operation.SyncOperationHelper.withSuppliedResource(SyncOperationHelper.java:149)
+	at com.mongodb.internal.operation.SyncOperationHelper.withSourceAndConnection(SyncOperationHelper.java:122)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.lambda$execute$3(MixedBulkWriteOperation.java:188)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.lambda$decorateWriteWithRetries$0(MixedBulkWriteOperation.java:146)
+	at com.mongodb.internal.async.function.RetryingSyncSupplier.get(RetryingSyncSupplier.java:67)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.execute(MixedBulkWriteOperation.java:207)
+	at com.mongodb.internal.operation.MixedBulkWriteOperation.execute(MixedBulkWriteOperation.java:77)
+	at com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor.execute(MongoClientDelegate.java:173)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeSingleWriteRequest(MongoCollectionImpl.java:1084)
+	at com.mongodb.client.internal.MongoCollectionImpl.executeInsertOne(MongoCollectionImpl.java:477)
+	at com.mongodb.client.internal.MongoCollectionImpl.insertOne(MongoCollectionImpl.java:460)
+	at com.mongodb.client.internal.MongoCollectionImpl.insertOne(MongoCollectionImpl.java:454)
+	at org.example.core.MongoDBClient.insertDocument(MongoDBClient.java:44)
+	at org.example.services.DatabaseStorageService.saveBlob(DatabaseStorageService.java:46)
+	at org.example.controllers.StorageController.lambda$saveBlob$0(StorageController.java:51)
+	at io.undertow.io.AsyncReceiverImpl.receiveFullBytes(AsyncReceiverImpl.java:399)
+	at org.example.controllers.StorageController.lambda$saveBlob$1(StorageController.java:46)
+	at io.undertow.server.RoutingHandler.handleRequest(RoutingHandler.java:93)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEventWithNoRunningRequest(HttpReadListener.java:265)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEvent(HttpReadListener.java:136)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:162)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:100)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:57)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92)
+	at org.xnio.ChannelListeners$10.handleEvent(ChannelListeners.java:291)
+	at org.xnio.ChannelListeners$10.handleEvent(ChannelListeners.java:286)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92)
+	at org.xnio.nio.QueuedNioTcpServer2.acceptTask(QueuedNioTcpServer2.java:178)
+	at org.xnio.nio.WorkerThread.safeRun(WorkerThread.java:624)
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:491)
+11:55:59.863 [XNIO-1 I/O-6] INFO  o.e.services.DatabaseStorageService - Saving blob with id: te
+11:55:59.863 [XNIO-1 I/O-6] INFO  com.mongodb.client.MongoClient - Inserting document into collection: blobs
+11:55:59.883 [XNIO-1 I/O-6] INFO  com.mongodb.client.MongoClient - Document inserted successfully.
+11:55:59.883 [XNIO-1 I/O-6] INFO  com.mongodb.client.MongoClient - Inserting document into collection: metadata
+11:55:59.892 [XNIO-1 I/O-6] INFO  com.mongodb.client.MongoClient - Document inserted successfully.
+11:55:59.892 [XNIO-1 I/O-6] INFO  o.e.services.DatabaseStorageService - Blob with id: te saved successfully.

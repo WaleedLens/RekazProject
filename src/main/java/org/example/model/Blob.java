@@ -20,6 +20,11 @@ public class Blob {
         this.createdAt = new Timestamp(System.currentTimeMillis());
     }
 
+    public Blob(String id, String data) {
+        this.id = id;
+        this.data = data;
+    }
+
     public String getData() {
         return data;
     }
@@ -41,11 +46,9 @@ public class Blob {
     }
 
 
-
     public int getSize() {
         return size;
     }
-
 
 
     public Timestamp getCreatedAt() {
