@@ -1,12 +1,14 @@
 package org.example.controllers;
 
 import com.google.inject.Inject;
+import com.mongodb.MongoWriteException;
 import io.undertow.server.HttpHandler;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.Headers;
 import io.undertow.util.StatusCodes;
 import org.example.annontations.ApiEndpoint;
 import org.example.exception.BlobNotFoundException;
+import org.example.exception.DuplicateBlobException;
 import org.example.exception.InvalidJsonException;
 import org.example.exception.InvalidRequestException;
 import org.example.model.Blob;
@@ -61,6 +63,20 @@ public class StorageController {
     }
 
     private void handleException(HttpServerExchange exchange, Exception e) {
+        if (e instanceof MongoWriteException && e.getCause() instanceof DuplicateBlobException) {
+            handleDuplicateBlobException(exchange, (DuplicateBlobException) e.getCause());
+        } else {
+            handleGeneralException(exchange, e);
+        }
+    }
+
+    private void handleDuplicateBlobException(HttpServerExchange exchange, DuplicateBlobException e) {
+        exchange.setStatusCode(StatusCodes.CONFLICT);
+        RequestUtils.sendResponse(exchange, e.getMessage());
+        logger.error("An error occurred: ", e);
+    }
+
+    private void handleGeneralException(HttpServerExchange exchange, Exception e) {
         exchange.setStatusCode(StatusCodes.INTERNAL_SERVER_ERROR);
         RequestUtils.sendResponse(exchange, "An error occurred: " + e.getMessage());
         logger.error("An error occurred: ", e);

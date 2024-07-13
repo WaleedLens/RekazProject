@@ -1,9 +1,12 @@
-package org.example.core;
+package org.example.database;
 
 import com.google.inject.Singleton;
+import com.mongodb.ErrorCategory;
+import com.mongodb.MongoWriteException;
 import com.mongodb.client.*;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.example.exception.DuplicateBlobException;
 import org.example.model.Blob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +24,8 @@ public class MongoDBClient {
         this.mongoClient = MongoClients.create(connectionString);
         String dbName = System.getProperty("DB_NAME");
         this.database = mongoClient.getDatabase(dbName);
+        DatabaseMigration databaseMigration = new DatabaseMigration(mongoClient);
+        databaseMigration.migrate();
         logger.info("MongoDBClient initialized successfully.");
     }
 
@@ -29,10 +34,10 @@ public class MongoDBClient {
         String dbUsername = System.getProperty("DB_USER");
         String dbPassword = System.getProperty("DB_PASSWORD");
         String dbHost = System.getProperty("DB_HOST");
-        String dbPort = System.getProperty("DB_PORT");
         String dbName = System.getProperty("DB_NAME");
         String authSource = System.getProperty("AUTH_SOURCE");
-        String connectionString = String.format("mongodb://%s:%s@%s:%s/%s%s", dbUsername, dbPassword, dbHost, dbPort, dbName, authSource);
+        String connectionString = String.format("mongodb://%s:%s@%s/%s%s", dbUsername, dbPassword, dbHost, dbName, authSource);
+        logger.info("Connection string: {}", connectionString);
         logger.info("Connection string built successfully.");
         return connectionString;
     }
@@ -40,8 +45,17 @@ public class MongoDBClient {
     public void insertDocument(String collectionName, Document document) {
         logger.info("Inserting document into collection: {}", collectionName);
         MongoCollection<Document> collection = database.getCollection(collectionName);
-        collection.insertOne(document);
-        logger.info("Document inserted successfully.");
+        try {
+            collection.insertOne(document);
+            logger.info("Document inserted successfully.");
+        } catch (MongoWriteException e) {
+            if (e.getError().getCategory() == ErrorCategory.DUPLICATE_KEY) {
+                String id = document.getString("id");
+                logger.error("A document with id: {} already exists in collection: {}", id, collectionName);
+                throw new DuplicateBlobException(id);
+            }
+            throw e;
+        }
     }
 
     public FindIterable<Document> findDocument(String collectionName, Bson filter) {
@@ -64,5 +78,13 @@ public class MongoDBClient {
         logger.info("Closing MongoDBClient...");
         mongoClient.close();
         logger.info("MongoDBClient closed successfully.");
+    }
+
+    public MongoClient getMongoClient() {
+        return mongoClient;
+    }
+
+    public MongoDatabase getDatabase() {
+        return database;
     }
 }

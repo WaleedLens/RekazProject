@@ -2,7 +2,7 @@ package org.example.services;
 
 import com.google.inject.Inject;
 import org.bson.Document;
-import org.example.core.MongoDBClient;
+import org.example.database.MongoDBClient;
 import org.example.exception.BlobNotFoundException;
 import org.example.model.Blob;
 import org.example.model.BlobDto;
@@ -67,7 +67,7 @@ public class DatabaseStorageService implements StorageService {
         Document metadataDocument = mongoClient.findDocument("metadata", new Document("id", id)).first();
         if (metadataDocument != null) {
             blob.setSize(metadataDocument.getInteger("size"));
-            blob.setCreatedAt((Timestamp) metadataDocument.getDate("timestamp"));
+            blob.setCreatedAt(new Timestamp(metadataDocument.getDate("timestamp").getTime()));
         }
         logger.info("Blob with id: {} retrieved successfully.", id);
         return blob;
