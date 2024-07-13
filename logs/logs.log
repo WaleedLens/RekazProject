@@ -454,3 +454,60 @@ org.example.exception.FileAlreadyExistsException: File with id imagine already e
 00:12:59.242 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
 00:12:59.294 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
 00:13:01.305 [XNIO-1 I/O-8] INFO  o.e.controllers.StorageController - Retrieved blob with id imagine and content Blob{id='imagine', data='SGVsbG8gU2ltcGxlIFN0b3JhZ2UgV29ybGQh', size=36, createdAt=2024-07-13 00:13:01.301} 
+09:35:15.225 [main] INFO  org.example.Main - [ℹ] Initializing Application
+09:35:15.228 [main] INFO  org.example.Main - [...] Loading routes...⌛
+09:35:15.229 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+09:35:15.528 [main] INFO  org.reflections.Reflections - Reflections took 44 ms to scan 1 urls, producing 1 keys and 2 values
+09:35:15.548 [main] INFO  org.example.core.RouteManager - New Route added 
+09:35:15.548 [main] INFO  org.example.core.RouteManager - New Route added 
+09:35:15.549 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+09:35:15.549 [main] INFO  org.example.Main - [...] Starting server...⌛
+09:35:15.561 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+09:35:15.574 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+09:35:15.584 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+09:35:15.722 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+09:35:15.775 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+09:35:23.308 [XNIO-1 I/O-7] INFO  o.e.services.LocalFileStorageService - Saving blob with id imagine
+09:35:23.309 [XNIO-1 I/O-7] INFO  o.e.services.LocalFileStorageService - Blob size: 27
+09:35:23.315 [XNIO-1 I/O-7] ERROR o.e.controllers.StorageController - An error occurred: 
+org.example.exception.FileAlreadyExistsException: File with id imagine already exists
+	at org.example.services.LocalFileStorageService.createFile(LocalFileStorageService.java:37)
+	at org.example.services.LocalFileStorageService.saveBlob(LocalFileStorageService.java:31)
+	at org.example.controllers.StorageController.lambda$saveBlob$0(StorageController.java:52)
+	at io.undertow.io.AsyncReceiverImpl.receiveFullBytes(AsyncReceiverImpl.java:399)
+	at org.example.controllers.StorageController.lambda$saveBlob$1(StorageController.java:47)
+	at io.undertow.server.RoutingHandler.handleRequest(RoutingHandler.java:93)
+	at io.undertow.server.Connectors.executeRootHandler(Connectors.java:393)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEventWithNoRunningRequest(HttpReadListener.java:265)
+	at io.undertow.server.protocol.http.HttpReadListener.handleEvent(HttpReadListener.java:136)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:162)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:100)
+	at io.undertow.server.protocol.http.HttpOpenListener.handleEvent(HttpOpenListener.java:57)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92)
+	at org.xnio.ChannelListeners$10.handleEvent(ChannelListeners.java:291)
+	at org.xnio.ChannelListeners$10.handleEvent(ChannelListeners.java:286)
+	at org.xnio.ChannelListeners.invokeChannelListener(ChannelListeners.java:92)
+	at org.xnio.nio.QueuedNioTcpServer2.acceptTask(QueuedNioTcpServer2.java:178)
+	at org.xnio.nio.WorkerThread.safeRun(WorkerThread.java:624)
+	at org.xnio.nio.WorkerThread.run(WorkerThread.java:491)
+09:35:32.092 [XNIO-1 I/O-7] INFO  o.e.services.LocalFileStorageService - Saving blob with id kkkq
+09:35:32.092 [XNIO-1 I/O-7] INFO  o.e.services.LocalFileStorageService - Blob size: 27
+09:35:32.093 [XNIO-1 I/O-7] INFO  o.e.services.LocalFileStorageService - Created file at /home/waleed/storage_files3/kkkq
+09:35:42.851 [XNIO-1 I/O-7] INFO  o.e.controllers.StorageController - Retrieved blob with id kkkq and content Blob{id='kkkq', data='SGVsbG8gU2ltcGxlIFN0b3JhZ2UgV29ybGQh', size=36, createdAt=2024-07-13 09:35:42.848} 
+09:43:33.301 [main] INFO  org.example.Main - [ℹ] Initializing Application
+09:43:33.303 [main] INFO  org.example.Main - [...] Loading routes...⌛
+09:43:33.303 [main] INFO  o.e.core.ApplicationInitializer - loading environment variables...
+09:43:33.634 [main] INFO  org.reflections.Reflections - Reflections took 45 ms to scan 1 urls, producing 1 keys and 2 values
+09:43:33.645 [main] INFO  org.example.core.RouteManager - New Route added 
+09:43:33.646 [main] INFO  org.example.core.RouteManager - New Route added 
+09:43:33.646 [main] INFO  org.example.Main - [OK] Routes loaded successfully ✔
+09:43:33.647 [main] INFO  org.example.Main - [...] Starting server...⌛
+09:43:33.654 [main] INFO  io.undertow - starting server: Undertow - 2.3.14.Final
+09:43:33.661 [main] INFO  org.xnio - XNIO version 3.8.16.Final
+09:43:33.669 [main] INFO  org.xnio.nio - XNIO NIO Implementation Version 3.8.16.Final
+09:43:33.799 [main] INFO  org.jboss.threads - JBoss Threads version 3.5.0.Final
+09:43:33.856 [main] INFO  org.example.core.WebServer - [OK] Server started successfully at host:localhost and port: 8906 ✔
+09:43:44.812 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Saving blob with id te
+09:43:44.813 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Blob size: 27
+09:43:44.813 [XNIO-1 I/O-5] INFO  o.e.services.LocalFileStorageService - Created file at /home/waleed/storage_files3/te
+09:43:47.865 [XNIO-1 I/O-5] INFO  o.e.controllers.StorageController - Retrieved blob with id te and content Blob{id='te', data='SGVsbG8gU2ltcGxlIFN0b3JhZ2UgV29ybGQh', size=27, createdAt=2024-07-13 09:43:47.862} 

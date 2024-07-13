@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Base64;
 
 public class LocalFileStorageService implements StorageService {
     private static final Logger logger = LoggerFactory.getLogger(LocalFileStorageService.class);
@@ -27,6 +28,7 @@ public class LocalFileStorageService implements StorageService {
         logger.info("Saving blob with id {}", blobDto.getId());
 
         Blob blob = new Blob(blobDto.getId(), blobDto.getData(), FileUtils.getBlobSize(blobDto.getData()));
+        logger.info("Blob size: {}", blob.getSize());
         createFile(blob);
     }
 
@@ -36,7 +38,8 @@ public class LocalFileStorageService implements StorageService {
             throw new FileAlreadyExistsException(blob.getId());
         }
         try {
-            Files.write(filePath, blob.getData().getBytes());
+            byte[] data = Base64.getDecoder().decode(blob.getData());
+            Files.write(filePath, data);
             logger.info("Created file at {}", filePath);
         } catch (IOException e) {
             logger.error("Failed to create file", e);
@@ -52,7 +55,8 @@ public class LocalFileStorageService implements StorageService {
         }
         try {
             byte[] data = Files.readAllBytes(filePath);
-            return new Blob(id, new String(data), data.length);
+            String encodedData = Base64.getEncoder().encodeToString(data);
+            return new Blob(id, encodedData, data.length);
         } catch (IOException e) {
             logger.error("Failed to read file", e);
             throw new RuntimeException(e);
