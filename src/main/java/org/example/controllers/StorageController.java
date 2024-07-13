@@ -101,7 +101,10 @@ public class StorageController {
             try {
                 String id = exchange.getQueryParameters().get("id").getFirst();
                 Blob blob = storageService.getBlob(id);
+                // Convert blob to JSON
+                String blobJson = ParsingUtils.objectToJson(blob);
                 // send blob data in response
+                exchange.getResponseSender().send(blobJson);
                 logger.info("Retrieved blob with id {} and content {} ", id, blob.toString());
             } catch (BlobNotFoundException e) {
                 exchange.setStatusCode(StatusCodes.NOT_FOUND);
