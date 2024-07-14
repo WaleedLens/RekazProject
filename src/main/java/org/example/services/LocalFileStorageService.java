@@ -1,5 +1,8 @@
 package org.example.services;
 
+import com.google.inject.Inject;
+import org.bson.Document;
+import org.example.database.MongoDBClient;
 import org.example.exception.BlobNotFoundException;
 import org.example.exception.FileAlreadyExistsException;
 import org.example.model.Blob;
@@ -9,8 +12,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.Timestamp;
 import java.util.Base64;
 
 /**
@@ -19,8 +24,12 @@ import java.util.Base64;
 public class LocalFileStorageService implements StorageService {
     private static final Logger logger = LoggerFactory.getLogger(LocalFileStorageService.class);
     private final Path path;
+    private final MongoDBClient mongoClient;
 
-    public LocalFileStorageService() {
+
+    @Inject
+    public LocalFileStorageService(MongoDBClient mongoDBClient) {
+        this.mongoClient = mongoDBClient;
         String blobPath = System.getProperty("LOCAL_STORAGE_PATH");
         this.path = Path.of(blobPath);
         createStorageDirectory();
@@ -38,6 +47,7 @@ public class LocalFileStorageService implements StorageService {
         Blob blob = new Blob(blobDto.getId(), blobDto.getData(), FileUtils.getBlobSize(blobDto.getData()));
         logger.info("Blob size: {}", blob.getSize());
         createFile(blob);
+        mongoClient.insertMetadata(blob);
     }
 
     /**
@@ -74,9 +84,14 @@ public class LocalFileStorageService implements StorageService {
         }
         try {
             byte[] data = Files.readAllBytes(filePath);
-            String encodedData = Base64.getEncoder().encodeToString(data);
+            Document metadataDocument = mongoClient.findDocument("metadata", new Document("id", id)).first();
+            Blob blob = new Blob(id, new String(data));
 
-            return new Blob(id, encodedData, data.length);
+            if (metadataDocument != null) {
+                blob.setSize(metadataDocument.getInteger("size"));
+                blob.setCreatedAt(new Timestamp(metadataDocument.getDate("timestamp").getTime()));
+            }
+            return blob;
         } catch (IOException e) {
             logger.error("Failed to read file", e);
             throw new RuntimeException(e);

@@ -43,7 +43,7 @@ public class S3Client {
         return response;
     }
 
-    public HttpResponse getObjectFromS3(String key) {
+    public String getObjectFromS3(String key) {
         String hashedPayload = getHashedPayload("");
         SortedMap<String, String> canonicalHeaders = getCanonicalHeaders(hashedPayload);
 
@@ -54,14 +54,13 @@ public class S3Client {
 
         CloseableHttpResponse httpResponse = executeRequest(httpGet);
 
-        handleResponse(httpResponse);
 
-        return httpResponse;
+        return handleResponse(httpResponse);
     }
 
-    public HttpResponse putObjectToS3(String key, String base64Data) {
-        byte[] decodedData = FileUtils.decodeBase64(base64Data);
-        String hashedPayload = getHashedPayload(base64Data);
+    public HttpResponse putObjectToS3(String key, String data) {
+        byte[] decodedData = data.getBytes();
+        String hashedPayload = getHashedPayload(FileUtils.encodeStringToBase64(data));
 
         SortedMap<String, String> canonicalHeaders = getCanonicalHeaders(hashedPayload);
 
@@ -106,7 +105,7 @@ public class S3Client {
         httpRequest.setHeader(AWSConstants.X_AMZ_CONTENT_SHA256, hashedPayload);
     }
 
-    private void handleResponse(CloseableHttpResponse httpResponse) {
+    private String handleResponse(CloseableHttpResponse httpResponse) {
         logger.info("Response: {}", httpResponse.getCode());
         logger.info("Response: {}", httpResponse.getReasonPhrase());
 
@@ -114,9 +113,11 @@ public class S3Client {
             String responseBody = EntityUtils.toString(httpResponse.getEntity());
             logger.info("Response body: {}", responseBody);
             EntityUtils.consume(httpResponse.getEntity());
+            return responseBody;
         } catch (IOException | ParseException e) {
             logger.error("Error handling response: {}", e.getMessage());
         }
+        return "";
     }
 
 }

@@ -15,6 +15,7 @@ import org.example.model.Blob;
 import org.example.model.BlobDto;
 import org.example.services.StorageService;
 import org.example.utils.BlobValidator;
+import org.example.utils.FileUtils;
 import org.example.utils.ParsingUtils;
 import org.example.utils.RequestUtils;
 import org.slf4j.Logger;
@@ -48,11 +49,11 @@ public class StorageController {
             exchange.getRequestReceiver().receiveFullBytes((ex, data) -> {
                 try {
                     BlobDto blobData = ParsingUtils.parseJson(new ByteArrayInputStream(data), BlobDto.class);
-                    BlobValidator.isValidBase64(blobData.getData());
-                    BlobValidator.validateBlobData(blobData);
+                    blobData.setData(FileUtils.decodeBase64ToString(blobData.getData()));
+                    //  BlobValidator.isValidBase64(blobData.getData());
+                    // BlobValidator.validateBlobData(blobData);
                     storageService.saveBlob(blobData);
                     exchange.setStatusCode(StatusCodes.CREATED);
-                    exchange.getResponseHeaders().put(Headers.LOCATION, "/blobs/" + blobData.getId());
                 } catch (InvalidRequestException | InvalidJsonException e) {
                     handleInvalidRequestException(ex, e);
                 } catch (Exception e) {
@@ -101,6 +102,7 @@ public class StorageController {
             try {
                 String id = exchange.getQueryParameters().get("id").getFirst();
                 Blob blob = storageService.getBlob(id);
+                blob.setData(FileUtils.encodeStringToBase64(blob.getData()));
                 // Convert blob to JSON
                 String blobJson = ParsingUtils.objectToJson(blob);
                 // send blob data in response
