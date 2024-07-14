@@ -75,6 +75,7 @@ public class LocalFileStorageService implements StorageService {
         try {
             byte[] data = Files.readAllBytes(filePath);
             String encodedData = Base64.getEncoder().encodeToString(data);
+
             return new Blob(id, encodedData, data.length);
         } catch (IOException e) {
             logger.error("Failed to read file", e);

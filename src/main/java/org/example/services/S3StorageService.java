@@ -1,6 +1,7 @@
 package org.example.services;
 
 
+import org.example.aws.S3Client;
 import org.example.model.Blob;
 import org.example.model.BlobDto;
 import org.slf4j.Logger;
@@ -11,11 +12,14 @@ public class S3StorageService implements StorageService {
 
     @Override
     public void saveBlob(BlobDto blobDto) {
-        logger.info("Its S3!!!");
+        S3Client s3Client = new S3Client();
+        s3Client.putObjectToS3(blobDto.getId(), blobDto.getData());
     }
 
     @Override
     public Blob getBlob(String id) {
-        return null;
+        S3Client s3Client = new S3Client();
+        s3Client.getObjectFromS3(id);
+        return new Blob("","");
     }
 }
