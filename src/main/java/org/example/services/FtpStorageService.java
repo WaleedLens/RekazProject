@@ -15,7 +15,6 @@ import java.sql.Timestamp;
 
 import org.apache.commons.net.ftp.FTP;
 import org.example.model.FTPServer;
-import org.example.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -29,6 +29,13 @@ public class MongoDBClient {
         logger.info("MongoDBClient initialized successfully.");
     }
 
+    // Constructor for testing
+    public MongoDBClient(MongoClient mongoClient) {
+        this.mongoClient = mongoClient;
+        String dbName = "test_db";
+        this.database = mongoClient.getDatabase(dbName);
+    }
+
     private String buildConnectionString() {
         logger.info("Building connection string...");
         String dbUsername = System.getProperty("DB_USER");
