@@ -61,8 +61,7 @@ public class LocalFileStorageService implements StorageService {
             throw new FileAlreadyExistsException(blob.getId());
         }
         try {
-            byte[] data = Base64.getDecoder().decode(blob.getData());
-            Files.write(filePath, data);
+            Files.write(filePath, blob.getData().getBytes());
             logger.info("Created file at {}", filePath);
         } catch (IOException e) {
             logger.error("Failed to create file", e);

@@ -9,6 +9,14 @@ public class BlobDto {
     @JsonProperty("data")
     private String data;
 
+    public BlobDto() {
+    }
+
+    public BlobDto(String id, String data) {
+        this.id = id;
+        this.data = data;
+    }
+
     // getters and setters
     public String getId() {
         return id;

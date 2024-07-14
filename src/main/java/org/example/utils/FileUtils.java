@@ -7,13 +7,12 @@ import java.util.Base64;
 
 public class FileUtils {
 
-    public static int getBlobSize(String base64Data) {
-        if (base64Data == null || base64Data.isEmpty()) {
+    public static int getBlobSize(String data) {
+        if (data == null || data.isEmpty()) {
             return 0;
         }
         try {
-            byte[] decodedBytes = Base64.getDecoder().decode(base64Data);
-            return decodedBytes.length;
+            return data.getBytes().length;
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Invalid Base64 data", e);
         }
