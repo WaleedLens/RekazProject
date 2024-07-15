@@ -1,6 +1,6 @@
 
 
-## Rekaz Simple Drive: A Versatile Object Storage Service
+## Rekaz Simple Drive: Simple Object Storage Service
 ![Screenshot from 2024-07-15 23-06-27](https://github.com/user-attachments/assets/5a81c7ea-e68e-4a8f-9d4b-6b796e934243)
 
 
