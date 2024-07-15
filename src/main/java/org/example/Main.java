@@ -30,6 +30,7 @@ public class Main {
         logger.info("[OK] Routes loaded successfully ✔");
         logger.info("[...] Starting server...⌛");
         MongoDBClient mongoDBClient = applicationInitializer.getMongoDBClient();
+        logger.info("Server Information: Host --> {} And port --> {}", System.getProperty("HOST"), System.getProperty("PORT"));
 
         WebServer webServer = new WebServer();
         webServer.startServer();

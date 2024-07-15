@@ -1,0 +1,36 @@
+services:
+  mongo_container:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+      MONGO_INITDB_DATABASE: rek
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - 27019:27019
+
+  joad1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./.env:/app/.env
+      - ./private_key.der:/app/private_key.der
+      - ./public_key.der:/app/public_key.der
+    depends_on:
+      - mongo_container
+    ports:
+      - 8911:8911
+    environment:  # Add your environment variables here
+      - DB_HOST=mongo_container
+      - HOST=0.0.0.0
+      - PORT=8911
+      - DB_PORT=27019
+      - DB_NAME=rek
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+
+volumes:
+  mongodb_data:
+

@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
  */
 public class WebServer {
     private static final Logger logger = LoggerFactory.getLogger(WebServer.class);
-    private static final int PORT = System.getProperty("server.port") != null ? Integer.parseInt(System.getProperty("server.port")) : 8906;
-    private static final String HOST = System.getProperty("server.host") != null ? System.getProperty("server.host") : "localhost";
+    private static final int PORT = System.getProperty("PORT") != null ? Integer.parseInt(System.getProperty("PORT")) : 8911;
+    private static final String HOST = System.getProperty("HOST") != null ? System.getProperty("HOST") : "0.0.0.0";
 
     private final RouteManager routeManager = ApplicationInitializer.injector.getInstance(RouteManager.class);
     private Undertow server;
