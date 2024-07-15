@@ -53,7 +53,7 @@ Check /aws
 
 ### Authentication Implementation
 
-The service utilizes Bearer token authentication. A single, secret API key serves as the shared secret for authentication. This is a straightforward approach well-suited for scenarios where user-specific authentication is not required.
+It is a Bearer token authentication with JSON Web Tokens (JWTs) for enhanced security. Authentication is based on RSA keys for signing and verifying tokens.
 Check /authentication
 
 
