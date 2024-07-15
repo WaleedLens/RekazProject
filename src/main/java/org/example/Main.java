@@ -20,8 +20,11 @@ public class Main {
      * @param args The command line arguments.
      */
     public static void main(String[] args) {
-        logger.info("[ℹ] Initializing Application");
+
+
+        logger.info("[ℹ] Initializing Application...\uD83D\uDD25");
         ApplicationInitializer applicationInitializer = new ApplicationInitializer();
+
         logger.info("[...] Loading routes...⌛");
         applicationInitializer.initialize();
         logger.info("[OK] Routes loaded successfully ✔");
@@ -31,10 +34,13 @@ public class Main {
         WebServer webServer = new WebServer();
         webServer.startServer();
 
+        new ASCIIArt().printBackendInformation();
         // Add a shutdown hook to close the database connection when the application is shutting down.
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            logger.info("Application is shutting down, closing database connection...");
+            logger.info("Application is shutting down, closing database connection... \uD83D\uDEA8");
             mongoDBClient.close();
         }));
+
+
     }
 }

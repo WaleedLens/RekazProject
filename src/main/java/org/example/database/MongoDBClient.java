@@ -34,7 +34,7 @@ public class MongoDBClient {
         this.database = mongoClient.getDatabase(dbName);
         DatabaseMigration databaseMigration = new DatabaseMigration(mongoClient);
         databaseMigration.migrate();
-        logger.info("MongoDBClient initialized successfully.");
+        logger.info("MongoDBClient initialized successfully  \uD83D\uDC4C");
     }
 
     /**
@@ -62,8 +62,7 @@ public class MongoDBClient {
         String dbName = System.getProperty("DB_NAME");
         String authSource = System.getProperty("AUTH_SOURCE");
         String connectionString = String.format("mongodb://%s:%s@%s/%s%s", dbUsername, dbPassword, dbHost, dbName, authSource);
-        logger.info("Connection string: {}", connectionString);
-        logger.info("Connection string built successfully.");
+        logger.info("Connection string built successfully \uD83D\uDC4F");
         return connectionString;
     }
 

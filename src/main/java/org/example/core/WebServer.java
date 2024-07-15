@@ -41,6 +41,6 @@ public class WebServer {
      */
     public void startServer() {
         server.start();
-        logger.info("[OK] Server started successfully at host:{} and port: {} ✔", HOST, PORT);
+        logger.info("[OK] Server started successfully at host:{} and port: {} \uD83D\uDD17", HOST, PORT);
     }
 }

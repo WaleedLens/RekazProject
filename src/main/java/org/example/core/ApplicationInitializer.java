@@ -20,6 +20,7 @@ import java.util.Set;
  * It loads environment variables, creates an injector, and registers routes.
  */
 public class ApplicationInitializer {
+    private static final String ENV_FILE = ".env";
     private static final Logger logger = LoggerFactory.getLogger(ApplicationInitializer.class);
     public static Injector injector;
 
@@ -40,7 +41,7 @@ public class ApplicationInitializer {
             try {
                 Object controllerInstance = injector.getInstance(method.getDeclaringClass());
                 ApiEndpoint apiEndpoint = method.getAnnotation(ApiEndpoint.class);
-                logger.info("Registering route: {} {}", apiEndpoint.method(), apiEndpoint.path());
+                logger.info("Registering route: {} {} \uD83D\uDD17", apiEndpoint.method(), apiEndpoint.path());
                 RouteManager routeManager = injector.getInstance(RouteManager.class);
                 routeManager.registerRoute(apiEndpoint.method(), apiEndpoint.path(), (HttpHandler) method.invoke(controllerInstance));
 
