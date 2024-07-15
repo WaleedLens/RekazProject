@@ -21,6 +21,10 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
+/**
+ * This class is responsible for interacting with AWS S3 service.
+ * It provides methods to get and put objects to S3.
+ */
 public class S3Client {
     private static final Logger logger = LoggerFactory.getLogger(S3Client.class);
 
@@ -30,12 +34,23 @@ public class S3Client {
     public S3Client() {
         this.signatureBuilder = new AWSV4SignatureGenerator();
     }
-    // For testing purposes, we will add a constructor that takes the AWSV4SignatureGenerator as an argument.
+
+    /**
+     * Constructor for testing purposes.
+     * Initializes the signature builder with the provided AWSV4SignatureGenerator.
+     *
+     * @param signatureBuilder The AWSV4SignatureGenerator.
+     */
     public S3Client(AWSV4SignatureGenerator signatureBuilder) {
         this.signatureBuilder = new AWSV4SignatureGenerator();
     }
 
-
+    /**
+     * Executes the provided HTTP request.
+     *
+     * @param httpRequest The HTTP request to execute.
+     * @return The HTTP response.
+     */
     private CloseableHttpResponse executeRequest(HttpUriRequestBase httpRequest) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpResponse response = null;
@@ -48,6 +63,12 @@ public class S3Client {
         return response;
     }
 
+    /**
+     * Gets an object from S3.
+     *
+     * @param key The key of the object to get.
+     * @return The object data as a string.
+     */
     public String getObjectFromS3(String key) {
         String hashedPayload = getHashedPayload("");
         SortedMap<String, String> canonicalHeaders = getCanonicalHeaders(hashedPayload);
@@ -63,6 +84,13 @@ public class S3Client {
         return handleResponse(httpResponse);
     }
 
+    /**
+     * Puts an object to S3.
+     *
+     * @param key  The key of the object to put.
+     * @param data The data of the object to put.
+     * @return The HTTP response.
+     */
     public HttpResponse putObjectToS3(String key, String data) {
         byte[] decodedData = data.getBytes();
         String hashedPayload = getHashedPayload(FileUtils.encodeStringToBase64(data));
@@ -82,6 +110,12 @@ public class S3Client {
         return httpResponse;
     }
 
+    /**
+     * Gets the hashed payload from the provided base64 data.
+     *
+     * @param base64Data The base64 data to hash.
+     * @return The hashed payload.
+     */
     private String getHashedPayload(String base64Data) {
         try {
             return FileUtils.hashStringContent(base64Data);
@@ -91,6 +125,12 @@ public class S3Client {
         }
     }
 
+    /**
+     * Gets the canonical headers for the request.
+     *
+     * @param hashedPayload The hashed payload of the request.
+     * @return The canonical headers.
+     */
     private SortedMap<String, String> getCanonicalHeaders(String hashedPayload) {
         SortedMap<String, String> canonicalHeaders = new TreeMap<>();
         canonicalHeaders.put("host", System.getProperty("S3_BUCKET") + ".s3." + "amazonaws.com");
@@ -99,10 +139,24 @@ public class S3Client {
         return canonicalHeaders;
     }
 
+    /**
+     * Gets the signed headers for the request.
+     *
+     * @param canonicalHeaders The canonical headers of the request.
+     * @return The signed headers.
+     */
     private String getSignedHeaders(SortedMap<String, String> canonicalHeaders) {
         return RequestUtils.generateSignedHeaders(canonicalHeaders);
     }
 
+    /**
+     * Sets the request headers for the provided HTTP request.
+     *
+     * @param httpRequest      The HTTP request to set the headers for.
+     * @param canonicalHeaders The canonical headers of the request.
+     * @param hashedPayload    The hashed payload of the request.
+     * @param canonicalRequest The canonical request of the request.
+     */
     private void setRequestHeaders(HttpUriRequestBase httpRequest, SortedMap<String, String> canonicalHeaders, String hashedPayload, CanonicalRequest canonicalRequest) {
         httpRequest.setHeader("Host", canonicalHeaders.get("host"));
         httpRequest.setHeader("Authorization", signatureBuilder.getAuthorizationHeader(canonicalRequest));
@@ -110,6 +164,12 @@ public class S3Client {
         httpRequest.setHeader(AWSConstants.X_AMZ_CONTENT_SHA256, hashedPayload);
     }
 
+    /**
+     * Handles the response from the HTTP request.
+     *
+     * @param httpResponse The HTTP response to handle.
+     * @return The response body as a string.
+     */
     private String handleResponse(CloseableHttpResponse httpResponse) {
         logger.info("Response: {}", httpResponse.getCode());
         logger.info("Response: {}", httpResponse.getReasonPhrase());

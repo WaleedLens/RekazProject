@@ -18,11 +18,21 @@ import org.example.model.FTPServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * This class is responsible for managing the FTP storage service.
+ * It provides methods to save blobs, get blobs, and connect to the FTP server.
+ */
 public class FtpStorageService implements StorageService {
     private static final Logger log = LoggerFactory.getLogger(FtpStorageService.class);
     private FTPClient ftpClient;
     private final MongoDBClient mongoDBClient;
 
+    /**
+     * Constructor for the FtpStorageService.
+     * Initializes the mongoDBClient with the provided MongoDBClient, and connects to the FTP server.
+     *
+     * @param mongoDBClient The MongoDBClient.
+     */
     @Inject
     public FtpStorageService(MongoDBClient mongoDBClient) {
         FTPServer ftpServer = new FTPServer(System.getProperty("FTP_HOST"), Integer.parseInt(System.getProperty("FTP_PORT")), System.getProperty("FTP_USER"), System.getProperty("FTP_PASSWORD"));
@@ -30,12 +40,23 @@ public class FtpStorageService implements StorageService {
         this.mongoDBClient = mongoDBClient;
     }
 
+    /**
+     * Constructor for the FtpStorageService for testing.
+     * Initializes the mongoDBClient with the provided MongoDBClient, and connects to the provided FTP server.
+     *
+     * @param ftpServer     The FTPServer.
+     * @param mongoDBClient The MongoDBClient.
+     */
     public FtpStorageService(FTPServer ftpServer, MongoDBClient mongoDBClient) {
         connectFtpServer(ftpServer);
         this.mongoDBClient = mongoDBClient;
     }
 
-
+    /**
+     * Saves a blob to the FTP server and inserts its metadata into the "metadata" collection.
+     *
+     * @param blobDto The blob to save.
+     */
     @Override
     public void saveBlob(BlobDto blobDto) {
         String fileName = blobDto.getId();
@@ -56,6 +77,12 @@ public class FtpStorageService implements StorageService {
         }
     }
 
+    /**
+     * Retrieves a blob from the FTP server and its metadata from the "metadata" collection.
+     *
+     * @param id The id of the blob to retrieve.
+     * @return The retrieved blob.
+     */
     @Override
     public Blob getBlob(String id) {
         try (InputStream inputStream = ftpClient.retrieveFileStream(id)) {
@@ -77,6 +104,11 @@ public class FtpStorageService implements StorageService {
         }
     }
 
+    /**
+     * Connects to the provided FTP server.
+     *
+     * @param ftpServer The FTPServer to connect to.
+     */
     private void connectFtpServer(FTPServer ftpServer) {
         String server = ftpServer.getHost();
         int port = ftpServer.getPort();

@@ -12,15 +12,29 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
+/**
+ * This class is responsible for managing the database migrations.
+ * It provides methods to migrate the database and add unique indexes to collections.
+ */
 public class DatabaseMigration {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseMigration.class);
 
     private final MongoClient mongoClient;
 
+    /**
+     * Constructor for the DatabaseMigration.
+     * Initializes the mongoClient with the provided MongoClient.
+     *
+     * @param mongoClient The MongoClient.
+     */
     public DatabaseMigration(MongoClient mongoClient) {
         this.mongoClient = mongoClient;
     }
 
+    /**
+     * Migrates the database.
+     * If the collections "blobs" and "metadata" do not exist, they are created and a unique index is added to them.
+     */
     public void migrate() {
         MongoDatabase database = mongoClient.getDatabase(System.getProperty("DB_NAME"));
 
@@ -41,6 +55,12 @@ public class DatabaseMigration {
         }
     }
 
+    /**
+     * Starts the migration for the provided collection.
+     * If the collection cannot be created, a MongoCommandException is thrown.
+     *
+     * @param collectionName The name of the collection.
+     */
     private void startMigration(String collectionName) {
         try {
             MongoDatabase database = mongoClient.getDatabase(System.getProperty("DB_NAME"));
@@ -52,6 +72,12 @@ public class DatabaseMigration {
         }
     }
 
+    /**
+     * Adds a unique index to the provided collection.
+     * If the index cannot be added, a MongoCommandException is thrown.
+     *
+     * @param collectionName The name of the collection.
+     */
     private void addUniqueIndex(String collectionName) {
         try {
             MongoDatabase database = mongoClient.getDatabase(System.getProperty("DB_NAME"));

@@ -18,24 +18,30 @@ import java.nio.file.Path;
 import java.sql.Timestamp;
 
 /**
- * Service for local file storage.
+ * This class is responsible for managing the local file storage service.
+ * It provides methods to save blobs, get blobs, and create the storage directory.
  */
 public class LocalFileStorageService implements StorageService {
     private static final Logger logger = LoggerFactory.getLogger(LocalFileStorageService.class);
     private final Path path;
     private final MongoDBClient mongoClient;
 
-
+    /**
+     * Constructor for the LocalFileStorageService.
+     * Initializes the mongoClient with the provided MongoDBClient, and creates the storage directory.
+     *
+     * @param mongoDBClient The MongoDBClient.
+     */
     @Inject
     public LocalFileStorageService(MongoDBClient mongoDBClient) {
-        this.mongoClient = mongoDBClient;
         String blobPath = System.getProperty("LOCAL_STORAGE_PATH");
         this.path = Path.of(blobPath);
         createStorageDirectory();
+        this.mongoClient = mongoDBClient;
     }
 
     /**
-     * Saves the blob data to a file.
+     * Saves a blob to a file and inserts its metadata into the "metadata" collection.
      *
      * @param blobDto The blob data transfer object containing the blob id and data.
      */
@@ -51,6 +57,7 @@ public class LocalFileStorageService implements StorageService {
 
     /**
      * Creates a file from the blob data.
+     * If a file with the same id already exists, a FileAlreadyExistsException is thrown.
      *
      * @param blob The blob object containing the blob id and data.
      */
@@ -69,10 +76,11 @@ public class LocalFileStorageService implements StorageService {
     }
 
     /**
-     * Retrieves the blob data from a file.
+     * Retrieves a blob from a file and its metadata from the "metadata" collection.
+     * If a file with the same id does not exist, a BlobNotFoundException is thrown.
      *
      * @param id The id of the blob.
-     * @return The blob object containing the blob id and data.
+     * @return The retrieved blob.
      */
     @Override
     public Blob getBlob(String id) {

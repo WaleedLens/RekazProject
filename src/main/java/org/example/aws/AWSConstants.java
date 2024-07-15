@@ -6,7 +6,7 @@ public final class AWSConstants {
     public static final String AWS4_SIGNING_ALGORITHM = "AWS4-HMAC-SHA256";
     public static final String AWS4_REQUEST = "aws4_request";
     public static final String HMAC_ALGORITHM = "HmacSHA256";
-    public static final String AWS_SERVICE = "aws";
+    public static final String AWS_SERVICE = "s3";
 
     private AWSConstants() {
     }

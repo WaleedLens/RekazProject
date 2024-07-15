@@ -10,6 +10,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
+/**
+ * This class provides the base for creating an AWS V4 Signature.
+ * It includes methods for creating a canonical request, a string to sign,
+ * hashing a string, converting bytes to hex, creating a signing key,
+ * and signing a string with a given signing key.
+ */
 public class AWSV4SignatureBase {
 
     private String region;
@@ -18,20 +24,42 @@ public class AWSV4SignatureBase {
     private String secretKey;
     private String date;
 
+    /**
+     * Constructor for AWSV4SignatureBase.
+     *
+     * @param region AWS region
+     * @param service AWS service
+     * @param accessKey AWS access key
+     * @param secretKey AWS secret key
+     */
     public AWSV4SignatureBase(String region, String service, String accessKey, String secretKey) {
         this.region = region;
         this.service = service;
         this.accessKey = accessKey;
         this.secretKey = secretKey;
         this.date = RequestUtils.formatDate(new Date());
-
     }
 
-
+    /**
+     * Returns the formatted date.
+     *
+     * @return formatted date
+     */
     public String getFormattedDate() {
         return this.date;
     }
 
+    /**
+     * Creates a canonical request.
+     *
+     * @param method HTTP method
+     * @param canonicalUri Canonical URI
+     * @param canonicalQueryString Canonical query string
+     * @param canonicalHeaders Canonical headers
+     * @param signedHeaders Signed headers
+     * @param hashedPayload Hashed payload
+     * @return canonical request
+     */
     public String createCanonicalRequest(String method, String canonicalUri, String canonicalQueryString, String canonicalHeaders, String signedHeaders, String hashedPayload) {
         return method + '\n' +
                 canonicalUri + '\n' +
@@ -41,6 +69,12 @@ public class AWSV4SignatureBase {
                 hashedPayload;
     }
 
+    /**
+     * Creates a string to sign.
+     *
+     * @param canonicalRequest Canonical request
+     * @return string to sign
+     */
     public String createStringToSign(String canonicalRequest) {
         return AWSConstants.AWS4_SIGNING_ALGORITHM + '\n' +
                 date + '\n' +
@@ -48,6 +82,12 @@ public class AWSV4SignatureBase {
                 hash(canonicalRequest);
     }
 
+    /**
+     * Hashes a string using SHA-256.
+     *
+     * @param text String to hash
+     * @return hashed string
+     */
     public String hash(String text) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -58,6 +98,12 @@ public class AWSV4SignatureBase {
         }
     }
 
+    /**
+     * Converts bytes to hex.
+     *
+     * @param bytes Bytes to convert
+     * @return hex string
+     */
     private String bytesToHex(byte[] bytes) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bytes) {
@@ -66,6 +112,11 @@ public class AWSV4SignatureBase {
         return sb.toString();
     }
 
+    /**
+     * Creates a signing key.
+     *
+     * @return signing key
+     */
     public byte[] createSigningKey() {
         try {
             byte[] kSecret = ("AWS4" + secretKey).getBytes(StandardCharsets.UTF_8);
@@ -78,6 +129,15 @@ public class AWSV4SignatureBase {
         }
     }
 
+    /**
+     * Creates a HMAC SHA-256 hash.
+     *
+     * @param key Key for HMAC
+     * @param value String to hash
+     * @return hashed bytes
+     * @throws NoSuchAlgorithmException if HMAC-SHA256 is not available
+     * @throws InvalidKeyException if the given key is inappropriate for initializing this MAC
+     */
     public byte[] hmacSHA256(byte[] key, String value) throws NoSuchAlgorithmException, InvalidKeyException {
         String algorithm = AWSConstants.HMAC_ALGORITHM;
         Mac mac = Mac.getInstance(algorithm);
@@ -85,6 +145,13 @@ public class AWSV4SignatureBase {
         return mac.doFinal(value.getBytes(StandardCharsets.UTF_8));
     }
 
+    /**
+     * Signs a string with a given signing key.
+     *
+     * @param stringToSign String to sign
+     * @param signingKey Signing key
+     * @return signed string
+     */
     public String sign(String stringToSign, byte[] signingKey) {
         try {
             byte[] rawHmac = hmacSHA256(signingKey, stringToSign);

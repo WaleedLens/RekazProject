@@ -1,6 +1,5 @@
 package org.example.core;
 
-
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import io.github.cdimascio.dotenv.Dotenv;
@@ -16,10 +15,18 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Set;
 
+/**
+ * This class is responsible for initializing the application.
+ * It loads environment variables, creates an injector, and registers routes.
+ */
 public class ApplicationInitializer {
     private static final Logger logger = LoggerFactory.getLogger(ApplicationInitializer.class);
     public static Injector injector;
 
+    /**
+     * Initializes the application.
+     * Loads environment variables, creates an injector, and registers routes.
+     */
     public void initialize() {
 
         logger.info("loading environment variables...");
@@ -33,25 +40,31 @@ public class ApplicationInitializer {
             try {
                 Object controllerInstance = injector.getInstance(method.getDeclaringClass());
                 ApiEndpoint apiEndpoint = method.getAnnotation(ApiEndpoint.class);
+                logger.info("Registering route: {} {}", apiEndpoint.method(), apiEndpoint.path());
                 RouteManager routeManager = injector.getInstance(RouteManager.class);
                 routeManager.registerRoute(apiEndpoint.method(), apiEndpoint.path(), (HttpHandler) method.invoke(controllerInstance));
 
             } catch (IllegalAccessException | InvocationTargetException e) {
+                logger.error("Error registering route: {}", e.getMessage());
                 e.printStackTrace();
             }
         }
     }
 
+    /**
+     * Returns an instance of MongoDBClient.
+     *
+     * @return An instance of MongoDBClient.
+     */
     public MongoDBClient getMongoDBClient() {
         return injector.getInstance(MongoDBClient.class);
     }
 
+    /**
+     * Loads environment variables from the .env file and sets them as system properties.
+     */
     private void loadEnvironmentVariables() {
         Dotenv dotenv = Dotenv.configure().load();
         dotenv.entries().forEach(e -> System.setProperty(e.getKey(), e.getValue()));
-
-
     }
-
-
 }
