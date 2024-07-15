@@ -1,6 +1,7 @@
 package org.example.services;
 
 import com.google.inject.Inject;
+import com.mongodb.client.FindIterable;
 import org.bson.Document;
 import org.example.database.MongoDBClient;
 import org.example.exception.BlobNotFoundException;
@@ -58,11 +59,12 @@ public class DatabaseStorageService implements StorageService {
     @Override
     public Blob getBlob(String id) {
         logger.info("Retrieving blob with id: {}", id);
-        Document document = mongoClient.findDocument("blobs", new Document("id", id)).first();
-        if (document == null) {
+        FindIterable<Document> findIterable = mongoClient.findDocument("blobs", new Document("id", id));
+        if (findIterable == null || findIterable.first() == null) {
             logger.error("No blob found with id: {}", id);
             throw new BlobNotFoundException(id);
         }
+        Document document = findIterable.first();
         Blob blob = new Blob(document.getString("id"), document.getString("data"));
         Document metadataDocument = mongoClient.findDocument("metadata", new Document("id", id)).first();
         if (metadataDocument != null) {

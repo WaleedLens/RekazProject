@@ -10,7 +10,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
-public class AWS4SignatureBase {
+public class AWSV4SignatureBase {
 
     private String region;
     private String service;
@@ -18,7 +18,7 @@ public class AWS4SignatureBase {
     private String secretKey;
     private String date;
 
-    public AWS4SignatureBase(String region, String service, String accessKey, String secretKey) {
+    public AWSV4SignatureBase(String region, String service, String accessKey, String secretKey) {
         this.region = region;
         this.service = service;
         this.accessKey = accessKey;
@@ -48,7 +48,7 @@ public class AWS4SignatureBase {
                 hash(canonicalRequest);
     }
 
-    private String hash(String text) {
+    public String hash(String text) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashedBytes = md.digest(text.getBytes(StandardCharsets.UTF_8));
@@ -78,7 +78,7 @@ public class AWS4SignatureBase {
         }
     }
 
-    private byte[] hmacSHA256(byte[] key, String value) throws NoSuchAlgorithmException, InvalidKeyException {
+    public byte[] hmacSHA256(byte[] key, String value) throws NoSuchAlgorithmException, InvalidKeyException {
         String algorithm = AWSConstants.HMAC_ALGORITHM;
         Mac mac = Mac.getInstance(algorithm);
         mac.init(new SecretKeySpec(key, algorithm));

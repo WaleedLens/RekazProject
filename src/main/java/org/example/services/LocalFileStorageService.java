@@ -1,6 +1,7 @@
 package org.example.services;
 
 import com.google.inject.Inject;
+import com.mongodb.client.FindIterable;
 import org.bson.Document;
 import org.example.database.MongoDBClient;
 import org.example.exception.BlobNotFoundException;
@@ -12,11 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.Timestamp;
-import java.util.Base64;
 
 /**
  * Service for local file storage.
@@ -83,7 +82,11 @@ public class LocalFileStorageService implements StorageService {
         }
         try {
             byte[] data = Files.readAllBytes(filePath);
-            Document metadataDocument = mongoClient.findDocument("metadata", new Document("id", id)).first();
+            FindIterable<Document> findIterable = mongoClient.findDocument("metadata", new Document("id", id));
+            if (findIterable == null) {
+                throw new BlobNotFoundException("No document found with the provided id " + id);
+            }
+            Document metadataDocument = findIterable.first();
             Blob blob = new Blob(id, new String(data));
 
             if (metadataDocument != null) {

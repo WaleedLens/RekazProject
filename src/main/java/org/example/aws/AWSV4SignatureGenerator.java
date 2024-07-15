@@ -7,14 +7,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class AWSV4SignatureBuilder {
-    private static final Logger logger = LoggerFactory.getLogger(AWSV4SignatureBuilder.class);
-    private AWS4SignatureBase signatureBase;
+public class AWSV4SignatureGenerator {
+    private static final Logger logger = LoggerFactory.getLogger(AWSV4SignatureGenerator.class);
+    private AWSV4SignatureBase signatureBase;
 
-    public AWSV4SignatureBuilder() {
+    public AWSV4SignatureGenerator() {
 
-        this.signatureBase = new AWS4SignatureBase(System.getProperty("S3_REGION"), "s3", System.getProperty("S3_ACCESS_KEY"), System.getProperty("S3_SECRET_KEY"));
+        this.signatureBase = new AWSV4SignatureBase(System.getProperty("S3_REGION"), "aws", System.getProperty("S3_ACCESS_KEY"), System.getProperty("S3_SECRET_KEY"));
 
+    }
+
+    /*
+    For testing purposes, we will add a constructor that takes the region, access key, and secret key as arguments.
+     */
+
+    public AWSV4SignatureGenerator(String region, String accessKey, String secretKey) {
+        this.signatureBase = new AWSV4SignatureBase(region, "s3", accessKey, secretKey);
     }
 
 

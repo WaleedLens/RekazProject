@@ -1,17 +1,24 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.example.utils.FileUtils;
 
 import java.sql.Timestamp;
 import java.util.Base64;
 
 public class Blob {
-
+    @JsonProperty("id")
     private String id;
+    @JsonProperty("data")
     private String data;
+    @JsonProperty("size")
     private int size;
+    @JsonProperty("createdAt")
     private Timestamp createdAt;
 
+    // Add a default constructor
+    public Blob() {
+    }
 
     public Blob(String id, String data, int size) {
         this.id = id;

@@ -10,7 +10,7 @@ public class StorageModule extends AbstractModule {
         String storageBackend = System.getProperty("STORAGE_BACKEND");
 
         switch (storageBackend) {
-            case "s3":
+            case "aws":
                 bind(StorageService.class).to(S3StorageService.class);
                 break;
             case "database":

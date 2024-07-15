@@ -24,12 +24,17 @@ import java.util.*;
 public class S3Client {
     private static final Logger logger = LoggerFactory.getLogger(S3Client.class);
 
-    private AWSV4SignatureBuilder signatureBuilder;
+    private AWSV4SignatureGenerator signatureBuilder;
     private final Date date = new Date();
 
     public S3Client() {
-        this.signatureBuilder = new AWSV4SignatureBuilder();
+        this.signatureBuilder = new AWSV4SignatureGenerator();
     }
+    // For testing purposes, we will add a constructor that takes the AWSV4SignatureGenerator as an argument.
+    public S3Client(AWSV4SignatureGenerator signatureBuilder) {
+        this.signatureBuilder = new AWSV4SignatureGenerator();
+    }
+
 
     private CloseableHttpResponse executeRequest(HttpUriRequestBase httpRequest) {
         CloseableHttpClient httpClient = HttpClients.createDefault();

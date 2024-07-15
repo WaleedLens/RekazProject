@@ -50,10 +50,10 @@ public class StorageController {
                 try {
                     BlobDto blobData = ParsingUtils.parseJson(new ByteArrayInputStream(data), BlobDto.class);
                     blobData.setData(FileUtils.decodeBase64ToString(blobData.getData()));
-                    //  BlobValidator.isValidBase64(blobData.getData());
-                    // BlobValidator.validateBlobData(blobData);
                     storageService.saveBlob(blobData);
                     exchange.setStatusCode(StatusCodes.CREATED);
+                } catch (DuplicateBlobException e) {
+                    handleDuplicateBlobException(ex, e);
                 } catch (InvalidRequestException | InvalidJsonException e) {
                     handleInvalidRequestException(ex, e);
                 } catch (Exception e) {
@@ -67,12 +67,13 @@ public class StorageController {
         if (e instanceof MongoWriteException && e.getCause() instanceof DuplicateBlobException) {
             handleDuplicateBlobException(exchange, (DuplicateBlobException) e.getCause());
         } else {
+
             handleGeneralException(exchange, e);
         }
     }
 
     private void handleDuplicateBlobException(HttpServerExchange exchange, DuplicateBlobException e) {
-        exchange.setStatusCode(StatusCodes.CONFLICT);
+        exchange.setStatusCode(StatusCodes.BAD_REQUEST);
         RequestUtils.sendResponse(exchange, e.getMessage());
         logger.error("An error occurred: ", e);
     }
@@ -89,6 +90,8 @@ public class StorageController {
         logger.error("Invalid request: ", e);
     }
 
+
+
     /**
      * Endpoint for retrieving a blob.
      * Expects a GET request at path "/v1/blobs/{id}".
@@ -102,6 +105,7 @@ public class StorageController {
             try {
                 String id = exchange.getQueryParameters().get("id").getFirst();
                 Blob blob = storageService.getBlob(id);
+
                 blob.setData(FileUtils.encodeStringToBase64(blob.getData()));
                 // Convert blob to JSON
                 String blobJson = ParsingUtils.objectToJson(blob);

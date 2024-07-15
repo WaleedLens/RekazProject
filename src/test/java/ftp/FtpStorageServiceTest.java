@@ -6,7 +6,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
-
 import org.bson.Document;
 import org.example.database.MongoDBClient;
 import org.example.model.Blob;
@@ -20,10 +19,7 @@ import org.mockftpserver.fake.filesystem.DirectoryEntry;
 import org.mockftpserver.fake.filesystem.FileSystem;
 import org.mockftpserver.fake.filesystem.UnixFakeFileSystem;
 import org.mockito.Mockito;
-
-
 import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -73,24 +69,7 @@ public class FtpStorageServiceTest {
     }
 
     @Test
-    public void testSaveBlob() throws IOException {
-        BlobDto blobDto = new BlobDto("test", "Hello, Waleed:))!");
-        ftpStorageService.saveBlob(blobDto);
-
-        FTPClient ftpClient = new FTPClient();
-        ftpClient.connect("localhost", fakeFtpServer.getServerControlPort());
-        ftpClient.login("user", "password");
-
-        FTPFile[] files = ftpClient.listFiles("/data");
-        assertEquals(1, files.length);
-        assertEquals("test", files[0].getName());
-
-        ftpClient.disconnect();
-    }
-
-
-    @Test
-    public void saveBlob_WhenCalled_StoresBlobOnServer() throws IOException {
+    public void saveBlob_ShouldStoreBlobOnServer_WhenBlobIsProvided() throws IOException {
         BlobDto blobDto = new BlobDto("test", "Hello, Waleed:))!");
         ftpStorageService.saveBlob(blobDto);
 
@@ -106,7 +85,7 @@ public class FtpStorageServiceTest {
     }
 
     @Test
-    public void saveBlob_WhenCalledWithEmptyData_StoresEmptyFileOnServer() throws IOException {
+    public void saveBlob_ShouldStoreEmptyFileOnServer_WhenBlobDataIsEmpty() throws IOException {
         BlobDto blobDto = new BlobDto("test", "");
         ftpStorageService.saveBlob(blobDto);
 
@@ -122,17 +101,17 @@ public class FtpStorageServiceTest {
     }
 
     @Test
-    public void getBlob_WhenFileExists_ReturnsBlobWithCorrectData() throws IOException {
+    public void getBlob_ShouldReturnBlobWithCorrectData_WhenFileExists() throws IOException {
         BlobDto blobDto = new BlobDto("test", "Hello, Waleed:))!");
         ftpStorageService.saveBlob(blobDto);
 
         Blob retrievedBlob = ftpStorageService.getBlob("test");
         assertEquals("test", retrievedBlob.getId());
-        assertEquals("Hello, World!", retrievedBlob.getData());
+        assertEquals("Hello, Waleed:))!", retrievedBlob.getData());
     }
 
     @Test
-    public void getBlob_WhenFileDoesNotExist_ThrowsException() {
+    public void getBlob_ShouldThrowRuntimeException_WhenFileDoesNotExist() {
         assertThrows(RuntimeException.class, () -> ftpStorageService.getBlob("nonexistent"));
     }
 
