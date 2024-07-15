@@ -58,6 +58,20 @@ Check /authentication
 
 
 ### How to Build and Run
+
+#### Requirements
+
+Before running the project, please ensure you have the following prerequisites:
+
+| Software                     | Version              | Installation Notes                                                               |
+| ---------------------------- | -------------------- | ---------------------------------------------------------------------------------- |
+| Java Development Kit (JDK) | 21+                  | Download and install from the official Oracle website or use a package manager. |
+| Apache Maven                | (Latest Stable)      | Install from the official Apache Maven website or use a package manager.        |
+| Docker                      | (Latest Stable)      | Download and install from the official Docker website.                            |
+| Docker Compose              | (Latest Stable)      | Included with Docker Desktop or install separately on Linux.                      |
+
+
+
 You need to run ./build.sh and make sure it is executable using {chmod +x build.sh} command.  Build.sh will generate your jar file & RSA key pair.
 1. **Generate Keys & Jar file (One-Time Setup):** Run the provided shell script to generate your RSA key pair for JWTs:
    ```bash
