@@ -21,7 +21,7 @@ public class AWSV4SignatureGenerator {
      */
     public AWSV4SignatureGenerator() {
 
-        this.signatureBase = new AWSV4SignatureBase(System.getProperty("S3_REGION"), "aws", System.getProperty("S3_ACCESS_KEY"), System.getProperty("S3_SECRET_KEY"));
+        this.signatureBase = new AWSV4SignatureBase(System.getProperty("S3_REGION"), "s3", System.getProperty("S3_ACCESS_KEY"), System.getProperty("S3_SECRET_KEY"));
 
     }
 
