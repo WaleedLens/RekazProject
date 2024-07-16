@@ -188,3 +188,13 @@ PUBLIC_KEY_PATH=public_key.der  # The path to your RSA public key file (in DER f
       }
        ```
 
+ ## System Analysis:
+ ### Backend Storage 
+![image](https://github.com/user-attachments/assets/3bc9510c-1f5c-4869-8303-f17e9fec4e91)
+
+### Backend AWS S3:
+![image](https://github.com/user-attachments/assets/f89b4fae-0a59-43e3-9371-fa979fa0cd7a)
+
+
+
+
