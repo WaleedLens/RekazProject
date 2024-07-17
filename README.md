@@ -196,7 +196,9 @@ PUBLIC_KEY_PATH=public_key.der  # The path to your RSA public key file (in DER f
 ![image](https://github.com/user-attachments/assets/f89b4fae-0a59-43e3-9371-fa979fa0cd7a)
 
 ### Authentication Flow
-![Screenshot from 2024-07-17 09-06-25](https://github.com/user-attachments/assets/d87074f2-e24f-4959-95f8-cba7d4782f46)
+![Screenshot from 2024-07-17 09-08-06](https://github.com/user-attachments/assets/2e52eb9b-3062-4169-8395-a6ac5f049812)
+
+
 
 
 
