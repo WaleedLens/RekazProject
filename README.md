@@ -195,6 +195,8 @@ PUBLIC_KEY_PATH=public_key.der  # The path to your RSA public key file (in DER f
 ### Backend AWS S3:
 ![image](https://github.com/user-attachments/assets/f89b4fae-0a59-43e3-9371-fa979fa0cd7a)
 
+### Authentication Flow
+![Screenshot from 2024-07-17 09-06-25](https://github.com/user-attachments/assets/d87074f2-e24f-4959-95f8-cba7d4782f46)
 
 
 
