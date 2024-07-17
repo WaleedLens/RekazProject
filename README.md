@@ -139,7 +139,34 @@ PUBLIC_KEY_PATH=public_key.der  # The path to your RSA public key file (in DER f
    docker compose up
    ```
 
+### Database
 
+This application utilizes MongoDB for efficient data storage. Ensure a MongoDB instance is running and accessible. You do not need to create collections manually; the application automatically handles data management.
+
+**Remember: You need to create a database.**
+
+#### Data Model
+The application's data is structured into two primary collections:
+
+**Metadata**
+Stores information about your data:
+
+```json
+{
+  "id": "unique identifier",
+  "size": "data size in bytes",
+  "createdAt": "ISO 8601 timestamp (e.g., 2024-07-17T09:18:00Z)"
+}
+```
+**Blob**
+Stores the actual binary data (files):
+
+```json
+{
+  "id": "unique identifier",
+  "data": "file content"
+}
+```
 
 ### API Endpoints
 
