@@ -1,12 +1,12 @@
 
 
-## Rekaz Simple Drive: Simple Object Storage Service
+## Simple Object Storage Service
 ![Screenshot from 2024-07-15 23-06-27](https://github.com/user-attachments/assets/5a81c7ea-e68e-4a8f-9d4b-6b796e934243)
 
 
 ### Introduction
 
-The Rekaz Simple Drive is a robust and flexible object storage service designed to handle the storage and retrieval of files or blobs of data. It offers a unified interface to interact with multiple storage backends, abstracting the complexities of individual storage solutions.
+The Simple Drive is a robust and flexible object storage service designed to handle the storage and retrieval of files or blobs of data. It offers a unified interface to interact with multiple storage backends, abstracting the complexities of individual storage solutions.
 
 ### Key Features
 
@@ -83,7 +83,7 @@ You need to run ./build.sh and make sure it is executable using {chmod +x build.
    
 ```
 # -----------------------------------
-# Rekaz Simple Drive Configuration
+#  Simple Drive Configuration
 # -----------------------------------
 
 # Server Configuration
